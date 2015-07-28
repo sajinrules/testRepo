@@ -1,0 +1,4 @@
+Version 1.0.1
+
+* New: added Message button to member directory
+* Fixed: several JS bugs

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>esig-assign-signer-order</Name>
+    <ProjectGuid>{722f71fb-f696-49c8-9773-0569e13a6ff2}</ProjectGuid>
+    <RootNamespace>esig-assign-signer-order</RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="admin\esig-assign-signer-order-admin.php" />
+    <Compile Include="admin\index.php" />
+    <Compile Include="esig-assign-signer-order.php" />
+    <Compile Include="includes\class-addon-updater.php" />
+    <Compile Include="includes\esig-assign-signer-order.php" />
+    <Compile Include="includes\index.php" />
+    <Compile Include="languages\index.php" />
+    <Compile Include="uninstall.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\" />
+    <Folder Include="admin\assets\" />
+    <Folder Include="admin\assets\js\" />
+    <Folder Include="includes\" />
+    <Folder Include="languages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\assets\js\esig-assign-signer-order.js" />
+    <Content Include="languages\en_US.mo" />
+    <Content Include="languages\en_US.po" />
+    <Content Include="languages\plugin-name.pot" />
+  </ItemGroup>
+</Project>

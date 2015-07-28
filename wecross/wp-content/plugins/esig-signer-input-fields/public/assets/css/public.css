@@ -1,0 +1,96 @@
+/* This stylesheet is used for the public-facing components of the plugin. */
+
+input.esig-sif-textfield
+{
+	background-color: #FFFFFF;
+	height: 2.5em !important;	
+	border: 1px solid #9B9B9B;
+	border-radius: 4px;
+	display: inline-block!important;
+}
+input.esig-sif-textfield.esig-error
+{
+	border-color:#c00;
+}
+label.esig-error
+{
+	display:inline-block;
+	background: #c00;
+	color:#fff;
+	font-weight:normal;
+	padding:2px .5em;
+	font-size:13px;
+	vertical-align:middle;
+}
+.esig-sif-textfield.signed
+{
+	background-color: transparent;
+	border-bottom: 1px solid #ccc;
+	padding:.2em .5em .15em .5em;
+
+}
+
+input.esig-sif-todaydate
+{
+	height:2.5em !important;
+	width: inherit !important;
+}
+input.esig-sif-todaydate.signed
+{
+	border-width: 0 0 1px 0 !important;
+}
+.document-sign-page .radio
+{
+	display:block;	
+	height:1em;
+}
+.document-sign-page .radio-horizental
+{
+	display:inline-block;
+	padding-right:1em;
+	height:1em;	
+}
+.document-sign-page .checkbox-horizental
+{
+	display:inline-block;
+	padding-right:1em;
+	height:1em;	
+}
+.esig-sif-radio, .esig-sif-checkbox
+{	
+	 padding:5px;	
+}
+.esig-sif-radio input[type="radio"]
+{
+	height:1em !important;
+	float:none;
+	margin-left:0px;
+	width:1.5em !important;	
+}
+.document-sign-page .checkbox
+{
+	display:block;
+	margin-left:25px;
+	height:1em;	
+}
+.esig-sif-checkbox input[type="checkbox"]
+{
+	height:1em !important;
+	width:1.5em !important;
+}
+
+.sifreadonly
+{
+	opacity: 0.5!important;
+	border: 1px solid #E7DEDE!important;
+	background: #e9f4ff!important;
+}
+.esig-sif-none 
+{
+    opacity:0.4;
+    padding-right:5px;
+}
+
+
+ /* error msg start hree */
+ 

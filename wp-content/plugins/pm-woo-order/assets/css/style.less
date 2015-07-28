@@ -1,0 +1,94 @@
+.cpmw-magic-project {
+    .cpmw-spinner:after {
+        background: url( '../images/loading.gif') no-repeat scroll rgba(0, 0, 0, 0);
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        margin: 0 0 0 10px;
+        position: absolute;
+        width: 16px;
+        content: "";
+    }
+    .cpmw-add-more {
+        float: right;
+        margin-right: 11px;
+        line-height: 22px;
+    }
+    .cpmw-add-more:after {
+        content: "";
+        display: inline-block;
+        clear: both;
+    }
+    .cpmw-add-more:before {
+        padding: 0 6px 0 0;
+        content: "+";
+        display: inline-block;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .cpmw-spinner {
+        margin-top: 10px;
+    }
+    .cpmw-delete-li:before {
+        border-radius: 3px;
+        color: #fff;
+        content: "✖";
+        display: inline-block;
+        background: #D53434;
+        cursor: pointer;
+
+        font-size: 12px;
+        padding: 2px 6px;;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+    }
+    .cpmw-delete-li {
+        float: right;
+        span {
+            display: inline-block;
+            text-indent: -9999px;
+        }
+    }
+    .cpmw-del-proj-role {
+        span {
+            display: inline-block;
+            text-indent: -9999px;
+        }
+    }
+    .cpmw-del-proj-role:before {
+        background: none;
+        font-size: 11px;
+        color: #EB0000;
+        content: "✖";
+        display: inline-block;
+        font-size: 11px;
+        cursor: pointer;
+        margin-left: 6px;
+    }
+    .cpmw-clone-area {
+        background: #FFFFFF;
+        box-shadow: -1px -1px 15px #E1E1E1;
+        margin: 5px 10px 10px 0;
+        padding: 10px;
+        position: relative;
+    }
+    .cpmw-type-wrap, .cpmw-project-fields-wrap, .cpmw-product-wrap {
+        float: left;
+        margin: 0 0 10px;
+        width: 24%;
+        select {
+            width: 78%;
+        }
+    }
+    .cpmw-clear {
+        clear: both;
+    }
+    .cpmw-project-role {
+
+        padding: 11px 0 12px 0;
+        table {
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+Version 1.1.9
+
+* Fixed: css problem causing dropdown fields to stop working
+
+Version 1.1.8
+
+* Fixed: optimised social login extension to speed up load time
+
+Version 1.1.7
+
+* Fixed: oauth class conflict with other plugins
+
+Version 1.1.6
+
+* New: allow social login templates to be overridden via theme templates
+
+Version 1.1.5
+
+* New: Added Instagram social login/registration support
+* New: Added VK (Vkontakte) social login/registration support
+
+Version 1.1.4
+
+* Fixed: Facebook login session issue
+* Fixed: long-lived login state
+
+Version 1.1.3
+
+* Fixed: compatibility issue was causing buttons to not appear
+
+Version 1.1.2
+
+* Tweak: added PHP requirement notice to avoid php errors on screen
+
+Version 1.1.1
+
+* Fixed: PHP backward compatibility issues (Recommended: update php to 5.4 at least)

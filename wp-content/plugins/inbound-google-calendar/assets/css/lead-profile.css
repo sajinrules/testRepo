@@ -1,0 +1,56 @@
+.authorize-prompt {
+    margin-top:20px;
+}
+
+.calendar-selector, .add_new_event {
+    float:right;
+}
+
+.add-calendar-event {
+    /* display:none; */
+}
+
+.notify-me-of-event {
+    text-align:right;
+    margin-right:-1px;
+    margin-bottom:5px;
+    font-size:10px;
+    font-style:italic;
+}
+#notify_me {
+    margin-left:14px;
+}
+#google-calendars {
+    font-size:10px;
+}
+
+.add-calendar-event {
+    margin-top:20px;
+    text-align:right;
+}
+
+.quick-add-event {
+    width:98%;
+    height: 50px;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    display: inline-block;
+}
+
+#calendar-display {
+    margin-top:30px;
+}

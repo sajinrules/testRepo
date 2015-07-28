@@ -1,0 +1,1 @@
+<a href="admin.php?page=simple_social_inbox_compose&post_id=<?php echo (int)$post->ID;?>" class="button">Share via Simple Social</a>

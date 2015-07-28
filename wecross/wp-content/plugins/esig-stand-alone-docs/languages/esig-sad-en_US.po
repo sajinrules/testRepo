@@ -1,0 +1,179 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP E-Signature Stand Alone Documents\n"
+"POT-Creation-Date: 2014-09-24 05:01+0530\n"
+"PO-Revision-Date: 2014-10-26 22:21+0600\n"
+"Last-Translator: Abu Shoaib <abushoaib73@gmail.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/esig-sad-admin.php:193
+msgid "Sign Legally Binding Documents using a WordPress website"
+msgstr ""
+
+#: admin/esig-sad-admin.php:198
+msgid "What is WP E-Signature?"
+msgstr ""
+
+#: admin/esig-sad-admin.php:203
+msgid ""
+"WP E-Signature by Approve Me is the\n"
+"                                fastest way to sign and send documents\n"
+"                                using WordPress. Save a tree (and a\n"
+"                                stamp).  Instead of printing, signing\n"
+"                                and uploading your contract, the\n"
+"                                document signing process is completed\n"
+"                                using your WordPress website. You have\n"
+"                                full control over your data - it never\n"
+"                                leaves your server. <br>\n"
+"                                <b>No monthly fees</b> - <b>Easy to use\n"
+"                                  WordPress plugin.</b><a style=\"color:"
+"#368bc6;text-decoration:none\" href=\"http://www.approveme.me/wp-digital-e-"
+"signature/?ref=1\" target=\"_blank\"> Learn more</a> "
+msgstr ""
+
+#: admin/esig-sad-admin.php:233
+msgid "Signature requested by"
+msgstr ""
+
+#: admin/esig-sad-admin.php:329 admin/esig-sad-admin.php:330
+msgid "Select a page..."
+msgstr ""
+
+#: admin/esig-sad-admin.php:335
+msgid "SELECTED"
+msgstr ""
+
+#: admin/esig-sad-admin.php:353
+msgid "This is a Stand Alone document"
+msgstr ""
+
+#: admin/esig-sad-admin.php:361
+msgid ""
+"Please select the page on your website where your Stand Alone Document will "
+"live.  You can invite signers to sign this document once you publish it."
+msgstr ""
+
+#: admin/esig-sad-admin.php:364
+msgid "Display on this page:"
+msgstr ""
+
+#: admin/esig-sad-admin.php:368
+msgid ""
+"There is already a Stand Alone document on this page. If you do not wish to "
+"overwrite it, please choose a different page."
+msgstr ""
+
+#: admin/esig-sad-admin.php:399
+msgid "dfdf"
+msgstr ""
+
+#: admin/esig-sad-admin.php:402
+msgid "Invite someone to sign your document."
+msgstr ""
+
+#: admin/esig-sad-admin.php:415
+msgid "Send Invite"
+msgstr ""
+
+#: admin/esig-sad-admin.php:425
+msgid "Here is the URL for your document."
+msgstr ""
+
+#: admin/esig-sad-admin.php:427
+msgid "Copy instructions go here"
+msgstr ""
+
+#: admin/esig-sad-admin.php:460
+msgid "Stand Alone"
+msgstr ""
+
+#: admin/esig-sad-admin.php:717
+msgid "Settings"
+msgstr ""
+
+#: admin/esig-sad-admin.php:751
+#, php-format
+msgid ""
+"Oh snap! Your default document page <a href='%1s'>%2s</a> shortcode  has "
+"been deleted."
+msgstr ""
+
+#: admin/esig-sad-admin.php:759
+msgid "Edit"
+msgstr ""
+
+#: admin/esig-sad-admin.php:760
+msgid "Share / Invite"
+msgstr ""
+
+#: admin/esig-sad-admin.php:781
+msgid "+ Stand Alone"
+msgstr ""
+
+#: admin/esig-sad-admin.php:793
+msgid "Stand Alone Benefits"
+msgstr ""
+
+#: admin/esig-sad-admin.php:794
+msgid "1 signer"
+msgstr ""
+
+#: admin/esig-sad-admin.php:795
+msgid "Same document for everyone"
+msgstr ""
+
+#: admin/esig-sad-admin.php:796
+msgid "Stored on a Wordpress page"
+msgstr ""
+
+#: admin/esig-sad-admin.php:797
+msgid "Great for automating contracts"
+msgstr ""
+
+#: includes/WP_E_License_Handler.php:122
+#, php-format
+msgid "%1$s License Key"
+msgstr ""
+
+#: public/esig-sad.php:153
+msgid "Your email address"
+msgstr ""
+
+#: public/esig-sad.php:177
+msgid "Wordpress Digital E-Signature by Approve Me"
+msgstr ""
+
+#: public/esig-sad.php:177
+msgid ""
+"Well this is embarrassing, but we can't seem to locate the document you're "
+"looking to sign online.<br>You may want to send an email to the website "
+"owner. <br>Thank you for using Wordpress Digital E-Signature By"
+msgstr ""
+
+#: public/esig-sad.php:177
+msgid "Approve Me"
+msgstr ""
+
+#: public/esig-sad.php:177
+msgid "Download WP E-Signature Free!"
+msgstr ""
+
+#: public/esig-sad.php:277
+msgid "Excellent work! You signed"
+msgstr ""
+
+#: public/esig-sad.php:277
+msgid "like a boss."
+msgstr ""

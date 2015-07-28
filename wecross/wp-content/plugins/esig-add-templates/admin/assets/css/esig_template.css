@@ -1,0 +1,40 @@
+#signer_main_pop 
+{
+	    display: block;
+	    width: 100%;
+	    border-radius: 7px;
+	    vertical-align: middle;
+	    text-align: center;
+	    position: relative;
+	    height: 93px;
+	    margin-bottom: 5px;
+	    border: 1px solid rgba(214, 211, 211, 1);
+	    font-size: 14px;
+	    color: #aaa;
+	    background: #FAFAFA;
+	    font-weight: 100;
+}
+
+#signer_main_pop input 
+{
+        margin-top:19px;
+        border-radius:3px ; 
+        height:37px ; 
+        top:10px;
+        margin-bottom:10px;
+}
+
+#no_of_signer input 
+{
+        border-radius:4px ; 
+        padding: 10px;
+}
+
+.esig-button-large 
+{
+        padding: 8px 20px 10px !important;
+        height: 46px !important;
+        font-size: 14px;
+        line-height: 28px !important;
+}
+

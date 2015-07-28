@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>esig-upload-logo-and-branding</Name>
+    <ProjectGuid>{552fb590-0a62-4e5e-ac86-841d96f410c4}</ProjectGuid>
+    <RootNamespace>esig-upload-logo-and-branding</RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="admin\assets\css\esig_branding.css" />
+    <Compile Include="admin\assets\js\esig_branding.js" />
+    <Compile Include="admin\view\esig-branding-view.php" />
+    <Compile Include="admin\esig-logo-branding-admin.php" />
+    <Compile Include="admin\index.php" />
+    <Compile Include="admin\view\esig-success-view.php" />
+    <Compile Include="includes\class-addon-updater.php" />
+    <Compile Include="includes\esig-logo-branding.php" />
+    <Compile Include="includes\index.php" />
+    <Compile Include="includes\WP_E_License_Handler.php" />
+    <Compile Include="esig-upload-logo-brand.php" />
+    <Compile Include="index.php" />
+    <Compile Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\assets\css" />
+    <Folder Include="admin\assets\js" />
+    <Folder Include="admin\assets" />
+    <Folder Include="admin\view" />
+    <Folder Include="admin" />
+    <Folder Include="includes" />
+  </ItemGroup>
+</Project>

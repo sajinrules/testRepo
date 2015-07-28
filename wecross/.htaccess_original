@@ -1,0 +1,144 @@
+
+# BEGIN All In One WP Security
+#AIOWPS_BASIC_HTACCESS_RULES_START
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+ServerSignature Off
+LimitRequestBody 10240000
+<Files wp-config.php>
+order allow,deny
+deny from all
+</Files>
+#AIOWPS_BASIC_HTACCESS_RULES_END
+#AIOWPS_PINGBACK_HTACCESS_RULES_START
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
+#AIOWPS_PINGBACK_HTACCESS_RULES_END
+#AIOWPS_IP_BLACKLIST_START
+Order allow,deny
+Allow from all
+Deny from 195.211.154.167
+Deny from 195.211.154.172
+Deny from 195.211.155.228
+Deny from 27.153.209.170
+Deny from 91.200.12.66
+#AIOWPS_IP_BLACKLIST_END
+#AIOWPS_FIVE_G_BLACKLIST_START
+# 5G BLACKLIST/FIREWALL (2013)
+# @ http://perishablepress.com/5g-blacklist-2013/
+
+# 5G:[QUERY STRINGS]
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{QUERY_STRING} (\"|%22).*(<|>|%3) [NC,OR]
+RewriteCond %{QUERY_STRING} (javascript:).*(\;) [NC,OR]
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3) [NC,OR]
+RewriteCond %{QUERY_STRING} (\\|\.\./|`|='$|=%27$) [NC,OR]
+RewriteCond %{QUERY_STRING} (\;|'|\"|%22).*(union|select|insert|drop|update|md5|benchmark|or|and|if) [NC,OR]
+RewriteCond %{QUERY_STRING} (base64_encode|localhost|mosconfig) [NC,OR]
+RewriteCond %{QUERY_STRING} (boot\.ini|echo.*kae|etc/passwd) [NC,OR]
+RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC]
+RewriteRule .* - [F]
+</IfModule>
+
+# 5G:[USER AGENTS]
+<IfModule mod_setenvif.c>
+# SetEnvIfNoCase User-Agent ^$ keep_out
+SetEnvIfNoCase User-Agent (binlar|casper|cmsworldmap|comodo|diavol|dotbot|feedfinder|flicky|ia_archiver|jakarta|kmccrew|nutch|planetwork|purebot|pycurl|skygrid|sucker|turnit|vikspider|zmeu) keep_out
+<limit GET POST PUT>
+Order Allow,Deny
+Allow from all
+Deny from env=keep_out
+</limit>
+</IfModule>
+
+# 5G:[REQUEST STRINGS]
+<IfModule mod_alias.c>
+RedirectMatch 403 (https?|ftp|php)\://
+RedirectMatch 403 /(https?|ima|ucp)/
+RedirectMatch 403 /(Permanent|Better)$
+RedirectMatch 403 (\=\\\'|\=\\%27|/\\\'/?|\)\.css\()$
+RedirectMatch 403 (\,|\)\+|/\,/|\{0\}|\(/\(|\.\.\.|\+\+\+|\||\\\"\\\")
+RedirectMatch 403 \.(cgi|asp|aspx|cfg|dll|exe|jsp|mdb|sql|ini|rar)$
+RedirectMatch 403 /(contac|fpw|install|pingserver|register)\.php$
+RedirectMatch 403 (base64|crossdomain|localhost|wwwroot|e107\_)
+RedirectMatch 403 (eval\(|\_vti\_|\(null\)|echo.*kae|config\.xml)
+RedirectMatch 403 \.well\-known/host\-meta
+RedirectMatch 403 /function\.array\-rand
+RedirectMatch 403 \)\;\$\(this\)\.html\(
+RedirectMatch 403 proc/self/environ
+RedirectMatch 403 msnbot\.htm\)\.\_
+RedirectMatch 403 /ref\.outcontrol
+RedirectMatch 403 com\_cropimage
+RedirectMatch 403 indonesia\.htm
+RedirectMatch 403 \{\$itemURL\}
+RedirectMatch 403 function\(\)
+RedirectMatch 403 labels\.rdf
+RedirectMatch 403 /playing.php
+RedirectMatch 403 muieblackcat
+</IfModule>
+
+# 5G:[REQUEST METHOD]
+<ifModule mod_rewrite.c>
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+</IfModule>
+#AIOWPS_FIVE_G_BLACKLIST_END
+#AIOWPS_BLOCK_SPAMBOTS_START
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_URI} ^(.*)?wp-comments-post\.php(.*)$
+RewriteCond %{HTTP_REFERER} !^http(s)?s://(.*)?\.wecross\.nl [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule .* http://127.0.0.1 [L]
+</IfModule>
+#AIOWPS_BLOCK_SPAMBOTS_END
+#AIOWPS_LOGIN_WHITELIST_START
+<FilesMatch "^(beheer)">
+Order Allow,Deny
+Allow from www.wecross.nl
+Allow from 178.18.82.140
+Allow from 87.209.123.176
+</FilesMatch>
+#AIOWPS_LOGIN_WHITELIST_END
+#AIOWPS_PREVENT_IMAGE_HOTLINKS_START
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g?|png)$ [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?s://(.*)?\.wecross\.nl [NC]
+RewriteRule \.(gif|jpe?g?|png)$ - [F,NC,L]
+</IfModule>
+#AIOWPS_PREVENT_IMAGE_HOTLINKS_END
+# END All In One WP Security
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.wecross.nl/$1 [R,L]
+
+# BEGIN REMOVE LANDING PAGE SLUG
+RewriteRule ^landing-page/(.+)/$ /$1 [R=301,L]
+# END REMOVE LANDING PAGE SLUG
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{QUERY_STRING} !lp-variation-id
+RewriteRule ^/([^/]*)/([0-9]+)/ //$1?lp-variation-id=$2 [QSA,L]
+RewriteCond %{QUERY_STRING} !lp-variation-id
+RewriteRule ^/([^/]*)? /wp-content/plugins/landing-pages/modules/module.redirect-ab-testing.php?permalink_name=$1  [QSA,L]
+RewriteRule ^landing-page=([^/]*)? /wp-content/plugins/landing-pages/modules/module.redirect-ab-testing.php?permalink_name=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

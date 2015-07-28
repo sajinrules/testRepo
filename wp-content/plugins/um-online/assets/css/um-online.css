@@ -1,0 +1,56 @@
+.um-online {
+
+}
+
+.um-online-user,
+.um-online-pic {
+	float: left;
+}
+
+.um-online-user {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 3px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.um-online-user.show-all {opacity: 0.8}
+.um-online-user.show-all:hover {opacity: 1}
+
+.um-online-pic a,
+.um-online-pic img {
+	border-radius: 3px;
+	display: block;
+	overflow: hidden;
+	max-width: 40px;
+	max-height: 40px;
+	height: auto !important;
+}
+
+.um-online-pic a {opacity: 0.9}
+.um-online-pic a:hover {opacity: 1}
+
+p.um-online-none {
+	text-align: center;
+	padding: 10px 0;
+}
+
+/* Show user online status */
+.um-online-status {
+	cursor: default !important;
+}
+
+.um-online-status i {
+	font-size: 14px;
+	position: relative;
+	top: -2px;
+}
+
+.um-online-status.online, .um-online-status.online i {
+	color: #7ACF58;
+}

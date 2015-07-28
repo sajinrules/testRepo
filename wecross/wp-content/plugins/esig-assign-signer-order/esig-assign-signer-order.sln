@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "esig-assign-signer-order", "esig-assign-signer-order.phpproj", "{722F71FB-F696-49C8-9773-0569E13A6FF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{722F71FB-F696-49C8-9773-0569E13A6FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722F71FB-F696-49C8-9773-0569E13A6FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722F71FB-F696-49C8-9773-0569E13A6FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722F71FB-F696-49C8-9773-0569E13A6FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,90 @@
+.cpmw-magic-project .cpmw-spinner:after {
+  background: url('../images/loading.gif') no-repeat scroll rgba(0, 0, 0, 0);
+  display: inline-block;
+  height: 16px;
+  margin: 0 0 0 10px;
+  position: absolute;
+  width: 16px;
+  content: "";
+}
+.cpmw-magic-project .cpmw-add-more {
+  float: right;
+  margin-right: 11px;
+  line-height: 22px;
+}
+.cpmw-magic-project .cpmw-add-more:after {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+.cpmw-magic-project .cpmw-add-more:before {
+  padding: 0 6px 0 0;
+  content: "+";
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+}
+.cpmw-magic-project .cpmw-spinner {
+  margin-top: 10px;
+}
+.cpmw-magic-project .cpmw-delete-li:before {
+  border-radius: 3px;
+  color: #fff;
+  content: "✖";
+  display: inline-block;
+  background: #D53434;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+}
+.cpmw-magic-project .cpmw-delete-li {
+  float: right;
+}
+.cpmw-magic-project .cpmw-delete-li span {
+  display: inline-block;
+  text-indent: -9999px;
+}
+.cpmw-magic-project .cpmw-del-proj-role span {
+  display: inline-block;
+  text-indent: -9999px;
+}
+.cpmw-magic-project .cpmw-del-proj-role:before {
+  background: none;
+  color: #EB0000;
+  content: "✖";
+  display: inline-block;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+.cpmw-magic-project .cpmw-clone-area {
+  background: #FFFFFF;
+  box-shadow: -1px -1px 15px #e1e1e1;
+  margin: 5px 10px 10px 0;
+  padding: 10px;
+  position: relative;
+}
+.cpmw-magic-project .cpmw-type-wrap,
+.cpmw-magic-project .cpmw-project-fields-wrap,
+.cpmw-magic-project .cpmw-product-wrap {
+  float: left;
+  margin: 0 0 10px;
+  width: 24%;
+}
+.cpmw-magic-project .cpmw-type-wrap select,
+.cpmw-magic-project .cpmw-project-fields-wrap select,
+.cpmw-magic-project .cpmw-product-wrap select {
+  width: 78%;
+}
+.cpmw-magic-project .cpmw-clear {
+  clear: both;
+}
+.cpmw-magic-project .cpmw-project-role {
+  padding: 11px 0 12px 0;
+}
+.cpmw-magic-project .cpmw-project-role table {
+  text-align: left;
+}

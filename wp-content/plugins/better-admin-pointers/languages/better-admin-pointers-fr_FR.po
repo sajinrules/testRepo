@@ -1,0 +1,324 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Better Admin Pointers\n"
+"POT-Creation-Date: 2014-05-27 07:42-0500\n"
+"PO-Revision-Date: 2014-05-27 13:17-0500\n"
+"Last-Translator: Stephen Suess <translator@stephensuess.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: better-admin-pointers.php:32
+msgid "Donate"
+msgstr "Donner"
+
+#: better-admin-pointers.php:53
+msgctxt "post type general name"
+msgid "Pointers"
+msgstr ""
+
+#: better-admin-pointers.php:54
+msgctxt "post type singular name"
+msgid "Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:55
+msgctxt "admin menu"
+msgid "Pointers"
+msgstr ""
+
+#: better-admin-pointers.php:56
+msgctxt "add new on admin bar"
+msgid "Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:57
+msgctxt "pointer"
+msgid "Add New"
+msgstr ""
+
+#: better-admin-pointers.php:58
+msgid "Add New Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:59
+msgid "New Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:60
+msgid "Edit Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:61
+msgid "View Pointer"
+msgstr ""
+
+#: better-admin-pointers.php:62
+msgid "All Pointers"
+msgstr ""
+
+#: better-admin-pointers.php:63
+msgid "Search Pointers"
+msgstr ""
+
+#: better-admin-pointers.php:64
+msgid "Parent Pointers:"
+msgstr ""
+
+#: better-admin-pointers.php:65
+msgid "No pointers found."
+msgstr ""
+
+#: better-admin-pointers.php:66
+msgid "No pointers found in Trash."
+msgstr ""
+
+#: better-admin-pointers.php:133
+msgid "Pointer id"
+msgstr ""
+
+#: better-admin-pointers.php:134
+msgid ""
+"Give your pointer a unique id (so that it can be tracked in the db as "
+"dismissed)"
+msgstr ""
+"Donnez a votre pointer un identifiant unique (de sorte qu'il peut être suivi "
+"dans la base de données comme fermé)"
+
+#: better-admin-pointers.php:140
+msgid "Screen"
+msgstr ""
+
+#: better-admin-pointers.php:141
+msgid "What screen will this show up on (example: my-custom-post-type)"
+msgstr "Sur quel écran va-t-il afficher (exemple: my-custom-post-type)"
+
+#: better-admin-pointers.php:146 better-admin-pointers.php:191
+msgid "Target"
+msgstr "Cible"
+
+#: better-admin-pointers.php:147
+msgid ""
+"What CSS id or class on the screen above are we targeting? (example: #delete-"
+"action)"
+msgstr ""
+"Quel Identifiant ou classe CSS sur l'écran ci-dessus ciblons-nous? (exemple: "
+"#delete-action) "
+
+#: better-admin-pointers.php:152
+msgid "Position Edge"
+msgstr ""
+
+#: better-admin-pointers.php:153
+msgid ""
+"Which edge should be adjacent to the target? (left, right, top, or bottom)"
+msgstr ""
+"Quel bord doit être adjacent à la cible? (left, right, top, or bottom) "
+
+#: better-admin-pointers.php:158
+msgid "Position Align"
+msgstr ""
+
+#: better-admin-pointers.php:159
+msgid ""
+"How should the pointer be aligned on this edge, relative to the target? "
+"(top, bottom, left, right, or middle)"
+msgstr ""
+"Comment le pointer doit être alignée sur ce bord, par rapport à la cible? "
+"(top, bottom, left, right, or middle) "
+
+#: better-admin-pointers.php:164
+msgid "Nudge Horizontal"
+msgstr "Pousser Horizontale"
+
+#: better-admin-pointers.php:165
+msgid ""
+"How much should we nudge the pointer horizontally? (Value in pixels. ex: -50)"
+msgstr ""
+"Combien faut-il pousser le pointer horizontalement? (Valeur en pixels ex:. "
+"-50) "
+
+#: better-admin-pointers.php:170
+msgid "Nudge Vertical"
+msgstr "Pousser Verticale"
+
+#: better-admin-pointers.php:171
+msgid ""
+"How much should we nudge the pointer vertically? (Value in pixels. ex: -50)"
+msgstr ""
+"Combien faut-il pousser le pointer verticalement? (Valeur en pixels ex:. "
+"-50) "
+
+#: better-admin-pointers.php:189
+msgid "Pointer Title"
+msgstr ""
+
+#: better-admin-pointers.php:190
+msgid "Screen/Page"
+msgstr ""
+
+#: better-admin-pointers.php:192
+msgid "Date"
+msgstr ""
+
+#: better-admin-pointers.php:213 better-admin-pointers.php:226
+msgid "Unknown"
+msgstr ""
+
+#: better-admin-pointers.php:356
+msgid "Dismiss"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_ajax.php:47
+msgid "Please Try Again"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_ajax.php:131
+msgid "Remove Embed"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_ajax.php:134
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_field.php:459
+msgid "Add Group"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_field.php:460
+msgid "Remove Group"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:250
+msgid "Add Row"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:306
+#: cmbclass/helpers/cmb_Meta_Box_types.php:706
+#: cmbclass/helpers/cmb_Meta_Box_types.php:768
+msgid "Remove"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:601
+#: cmbclass/helpers/cmb_Meta_Box_types.php:635
+msgid "No terms"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:674
+#: cmbclass/helpers/cmb_Meta_Box_types.php:728
+msgid "Add or Upload File"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:695
+#: cmbclass/helpers/cmb_Meta_Box_types.php:760
+msgid "Remove Image"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:706
+#: cmbclass/helpers/cmb_Meta_Box_types.php:768
+msgid "File:"
+msgstr ""
+
+#: cmbclass/helpers/cmb_Meta_Box_types.php:706
+#: cmbclass/helpers/cmb_Meta_Box_types.php:768
+msgid "Download"
+msgstr ""
+
+#: cmbclass/init.php:258
+msgid "Clear"
+msgstr ""
+
+#: cmbclass/init.php:259
+msgid "Default"
+msgstr ""
+
+#: cmbclass/init.php:260
+msgid "Select Color"
+msgstr ""
+
+#: cmbclass/init.php:261
+msgid "Current Color"
+msgstr ""
+
+#: cmbclass/init.php:288
+msgid "Select / Deselect All"
+msgstr ""
+
+#: cmbclass/init.php:1177
+msgid "Save"
+msgstr ""
+
+#: sbap-options.php:15
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Vous n'avez pas les permissions nécessaires pour accéder à cette page."
+
+#: sbap-options.php:22
+msgid ""
+"You have pointers in your database (prior to version 1.3) that are in the "
+"old format. Until you update the db, your old pointers will not show up "
+"(although any newly created ones will). Click the button below to update it "
+"and import your old pointers."
+msgstr ""
+"Vous avez des pointers (créées avant à la version 1.3) dans l'ancien format. "
+"Avant de mettre à jour la base de données, vos anciens pointers ne "
+"s'affichent pas. Cliquez sur le bouton ci-dessous pour mettre à jour et "
+"d'importer vos anciens pointers. "
+
+#: sbap-options.php:34
+msgid "OLD POINTERS SUCESSFULLY IMPORTED"
+msgstr "LES VIEUX POINTERS ONT ETÉ BIEN IMPORTEES"
+
+#: sbap-options.php:39
+msgid "Reset all Pointers"
+msgstr "Réinitialiser tous les pointers"
+
+#: sbap-options.php:40
+msgid ""
+"Click the button below to reset all pointers (so they will show anew) for "
+"all users. This will include all the default WP built-in pointers, as well "
+"as any you have defined with the plugin."
+msgstr ""
+"Cliquez sur le bouton ci-dessous pour réinitialiser tous les pointers (de "
+"sorte qu'ils apparaîtront à nouveau) pour tous les utilisateurs. Cela "
+"comprendra tous les pointers WP intégré, ainsi que tout que vous avez défini "
+"avec le plugin. "
+
+#: sbap-options.php:54
+msgid "DISMISSED POINTERS SUCESSFULLY RESET"
+msgstr "POINTERS FERMÉES RÉINITIALISÉS AVEC SUCCÈS"
+
+#: sbap-options.php:66
+#, php-format
+msgid "<p>You are running version %s of Better Admin Pointers.</p>"
+msgstr "<p>Vous utilisez la version %s de Better Admin Pointers.</p>"
+
+#: sbap-options.php:83
+msgid "BAP Options"
+msgstr ""
+
+#: sbap-options.php:92
+msgid "Pointers Admin Viewable By:"
+msgstr "Accės à l'administration de Pointers:"
+
+#: sbap-options.php:146 sbap-options.php:153 sbap-options.php:159
+#: sbap-options.php:165
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: sbap-options.php:166
+msgid ""
+"Administrator (Can always see pointers and is only role to see options page)"
+msgstr ""
+"Administrateur (toujours capable de voir la page d'options aussi bien que "
+"les pointers)"

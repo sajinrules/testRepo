@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP E-Signature Signing Reminders\n"
+"POT-Creation-Date: 2014-09-24 22:24+0530\n"
+"PO-Revision-Date: 2014-10-26 22:21+0600\n"
+"Last-Translator: Abu Shoaib <abushoaib73@gmail.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/esig-reminders-admin.php:179
+msgid ""
+"Oh snap! Your reminder not sending properly. check your mail server settings"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:268
+msgid "is awaiting your signature"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:332 admin/esig-reminders-admin.php:480
+msgid "start reminders"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:335 admin/esig-reminders-admin.php:447
+#: admin/esig-reminders-admin.php:477
+msgid "pause reminders"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:361
+msgid "signed"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:368
+msgid "Signing Reminder Settings"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:371 admin/esig-reminders-admin.php:552
+msgid "Send a reminder email to the signer in"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:371 admin/esig-reminders-admin.php:372
+#: admin/esig-reminders-admin.php:373 admin/esig-reminders-admin.php:552
+#: admin/esig-reminders-admin.php:553 admin/esig-reminders-admin.php:554
+msgid "Days"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:372 admin/esig-reminders-admin.php:553
+msgid "After the first reminder send reminder every"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:373 admin/esig-reminders-admin.php:554
+msgid "Expire reminders in"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:433
+msgid "Send signing reminders for :"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:440
+msgid "Invited Signers"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:448
+msgid "Send Reminder Now"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:484
+msgid "Signing Reminders"
+msgstr ""
+
+#: admin/esig-reminders-admin.php:546
+msgid ""
+"Automatically send email reminder(s) to all signers that have not yet signed "
+"your document."
+msgstr ""
+
+#: admin/esig-reminders-admin.php:549
+msgid "Enable Signing Reminders"
+msgstr ""
+
+#: includes/WP_E_License_Handler.php:122
+#, php-format
+msgid "%1$s License Key"
+msgstr ""

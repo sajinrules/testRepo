@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ultimate Member\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-14 02:45+0200\n"
+"PO-Revision-Date: 2015-03-17 17:06+0100\n"
+"Last-Translator: Calum Allison <umplugin@gmail.com>\n"
+"Language-Team: Ultimate Member <umplugin@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: EDD_SL_Plugin_Updater.php:177
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Une nouvelle version de %1$s est disponible. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Voir les détails de la version %3$s</a>."
+
+#: EDD_SL_Plugin_Updater.php:184
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Une nouvelle version de %1$s est disponible. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Voir les détails de la version %3$s</a> ou <a "
+"href=\"%4$s\">mettre à jour maintenant</a>."
+
+#: EDD_SL_Plugin_Updater.php:324
+msgid "You do not have permission to install plugin updates"
+msgstr "Vous n'avez pas l'autorisation d'installer des plugins"
+
+#: EDD_SL_Plugin_Updater.php:324
+msgid "Error"
+msgstr "Erreur"
+
+#: core/actions/um-mycred-account.php:16
+#, php-format
+msgid "Add %s points to your balance by connecting to this network."
+msgstr "Ajoutez %s points à votre solde en vous connectant à ce réseau."
+
+#: core/filters/um-mycred-account.php:10
+msgid "My Points"
+msgstr "Mes Points"
+
+#: core/filters/um-mycred-account.php:50
+msgid "My Balance"
+msgstr "Solde actuel"
+
+#: core/filters/um-mycred-account.php:59
+msgid "My Referral Link"
+msgstr "Mon lien référant"
+
+#: core/filters/um-mycred-fields.php:10 core/filters/um-mycred-fields.php:13
+msgid "myCRED Balance"
+msgstr "Solde myCRED"
+
+#: core/filters/um-mycred-fields.php:21 core/filters/um-mycred-fields.php:24
+msgid "myCRED Progress"
+msgstr "Progression myCRED"
+
+#: core/filters/um-mycred-fields.php:34 core/filters/um-mycred-fields.php:37
+msgid "myCRED Badges"
+msgstr "Badges myCRED"
+
+#: core/filters/um-mycred-fields.php:47 core/filters/um-mycred-fields.php:50
+msgid "myCRED Rank"
+msgstr "Rang myCRED"
+
+#: core/filters/um-mycred-settings.php:12
+msgid "myCRED"
+msgstr "myCRED"
+
+#: core/filters/um-mycred-settings.php:21
+msgid "Width / height of badge in pixels (Badges appearing in profile tab)"
+msgstr ""
+"Hauteur et largeur des badges en pixel (Les badges qui apparaissent dans "
+"l'onglet du profil)"
+
+#: core/filters/um-mycred-settings.php:28
+msgid "Account Tab"
+msgstr "Onglet de compte"
+
+#: core/filters/um-mycred-settings.php:30
+msgid "Show or hide an account tab that shows the user balance"
+msgstr ""
+"Afficher ou masquer l'onglet dans lequel l'utilisateur peut consulter son "
+"solde"
+
+#: core/filters/um-mycred-settings.php:31
+#: core/filters/um-mycred-settings.php:40
+#: core/filters/um-mycred-settings.php:49
+msgid "On"
+msgstr "Activé"
+
+#: core/filters/um-mycred-settings.php:32
+#: core/filters/um-mycred-settings.php:41
+#: core/filters/um-mycred-settings.php:50
+msgid "Off"
+msgstr "Désactivé"
+
+#: core/filters/um-mycred-settings.php:38
+msgid "Show user affiliate link in account page"
+msgstr "Afficher le lien d'affiliation dans la page du compte"
+
+#: core/filters/um-mycred-settings.php:47
+msgid "Show user badges in profile header?"
+msgstr "Afficher les badges de l'utilisateur dans l'entête du profil ?"
+
+#: core/filters/um-mycred-settings.php:56
+msgid "Number of decimals to allow in balance"
+msgstr "Nombre de décimales à afficher dans le solde"
+
+#: core/filters/um-mycred-settings.php:64
+msgid "Show user balance in bbPress replies"
+msgstr "Afficher le solde dans les réponses bbPress"
+
+#: core/filters/um-mycred-settings.php:70
+msgid "Show user rank progress in bbPress replies"
+msgstr "Afficher le rang dans les réponses bbPress"
+
+#: core/filters/um-mycred-settings.php:78
+msgid "General"
+msgstr "Général"
+
+#: core/filters/um-mycred-settings.php:84
+msgid "user login"
+msgstr "l'utilisateur se connecte"
+
+#: core/filters/um-mycred-settings.php:85
+msgid "new user is approved"
+msgstr "le nouvel utilisateur a été approuvé"
+
+#: core/filters/um-mycred-settings.php:86
+msgid "user updates profile"
+msgstr "l'utilisateur met à jour son profil"
+
+#: core/filters/um-mycred-settings.php:87
+msgid "user uploads a profile photo"
+msgstr "l'utilisateur ajoute une photo de profil"
+
+#: core/filters/um-mycred-settings.php:88
+msgid "user uploads a cover photo"
+msgstr "l'utilisateur ajoute une image de couverture"
+
+#: core/filters/um-mycred-settings.php:105
+#: core/filters/um-mycred-settings.php:140
+msgid "points"
+msgstr "points"
+
+#: core/filters/um-mycred-settings.php:114
+#: core/filters/um-mycred-settings.php:149
+msgid "limit"
+msgstr "limite"
+
+#: core/filters/um-mycred-settings.php:116
+msgid "How many times this can be awarded."
+msgstr "Combien de fois cela peut-il être octroyé."
+
+#: core/filters/um-mycred-settings.php:122
+msgid "user removes a profile photo"
+msgstr "l'utilisateur retire une photo de profil"
+
+#: core/filters/um-mycred-settings.php:123
+msgid "user removes a cover photo"
+msgstr "l'utilisateur retire une image de couverture"
+
+#: core/filters/um-mycred-settings.php:151
+msgid "How many times this can be deducted."
+msgstr "Combien de fois cela peut-il être déduit"
+
+#: core/filters/um-mycred-settings.php:159
+msgid "Award points when"
+msgstr "Octroyer des points lorsque"
+
+#: core/filters/um-mycred-settings.php:167
+msgid "Deduct points when"
+msgstr "Déduire des points lorsque"
+
+#: core/filters/um-mycred-tabs.php:22
+msgid "Badges"
+msgstr "Hauts faits"
+
+#: core/filters/um-mycred-tabs.php:25
+msgid "Your Badges"
+msgstr "Vos hauts faits"
+
+#: core/filters/um-mycred-tabs.php:25
+#, php-format
+msgid "%s's Badges"
+msgstr "Hauts faits de %s"
+
+#: core/filters/um-mycred-tabs.php:26
+msgid "All Badges"
+msgstr "Tous les hauts faits"
+
+#: core/um-mycred-init.php:22
+#, php-format
+msgid ""
+"The <strong>%s</strong> extension requires the Ultimate Member plugin to be "
+"activated to work properly. You can download it <a href=\"https://wordpress."
+"org/plugins/ultimate-member\">here</a>"
+msgstr ""
+"L'extension <strong>%s</strong> nécessite que le plugin Ultimate Member soit "
+"acivé. Vous pouvez le  télécharger <a href=\"https://wordpress.org/plugins/"
+"ultimate-member\">ici</a>"
+
+#: core/um-mycred-init.php:27
+#, php-format
+msgid ""
+"Sorry. You must activate the <strong>myCRED</strong> plugin to use the %s."
+msgstr ""
+"Désolé. Vous devez activer le plugin <strong>myCRED</strong> pour utiliser "
+"%s."
+
+#: core/um-mycred-init.php:32
+#, php-format
+msgid ""
+"The <strong>%s</strong> extension requires a <a href=\"https://wordpress.org/"
+"plugins/ultimate-member\">newer version</a> of Ultimate Member to work "
+"properly."
+msgstr ""
+"L'extension <strong>%s</strong> requiert une <a href=\"https://wordpress.org/"
+"plugins/ultimate-member\">version plus récente</a> de Ultimate Member pour "
+"fonctionner correctement."
+
+#: core/um-mycred-init.php:121
+#, php-format
+msgid "%s points"
+msgstr "%s points"
+
+#~ msgid "outdatedBrowser_page_message"
+#~ msgstr ""
+#~ "The site you are visiting can only be viewed using a modern browser. "
+#~ "Please upgrade your browser to increase safety and your browsing "
+#~ "experience. Choose one of the browsers above. If you don't care <a href="
+#~ "\"?forwardOutdatedBrowser=1\">click here</a>"
+
+#~ msgid "404_page_message"
+#~ msgstr ""
+#~ "The Page you are looking for doesn't exist or an other error occurred. <a "
+#~ "href=\"javascript:history.go(-1)\">Go back</a>, or head over to <a href="
+#~ "\"%s\">%s</a> to choose a new direction."

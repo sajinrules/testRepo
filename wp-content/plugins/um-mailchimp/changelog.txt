@@ -1,0 +1,3 @@
+Version 1.1.1
+
+* Tweak: eliminates php errors caused by missing configuration / API key

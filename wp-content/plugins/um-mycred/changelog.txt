@@ -1,0 +1,20 @@
+Version 1.1.4
+
+* New: allow users to transfer points to other users (can be controlled)
+* New: added more options for bbpress integration
+
+Version 1.1.3
+
+* New: point credits and charges are now logged through myCRED Log
+
+Version 1.1.2
+
+* Fixed: credit/charge points with limit issue resolved
+
+Version 1.1.1
+
+* New: added French language support
+
+Version 1.1.0
+
+* Fixed: a php bug with number_format() function

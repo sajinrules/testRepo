@@ -1,0 +1,40 @@
+Groups Restrict Categories                                           Changelog
+==============================================================================
+
+* 1.3.3
+
+  - Fixes an issue with map_meta_cap filtering where no valid post ID is
+    provided.
+ 
+* 1.3.2
+
+  - Fixes a bug that hides content inappropriately.
+  - Fixes internal update failed message when no update is needed.
+
+* 1.3.1
+
+  - Fixed some PHP warnings produced when term capabilities are empty.
+
+* 1.3.0
+
+  - It is highly recommended to make a full backup of your site and database
+    before upgrading to this release.
+  - Important performance improvements thanks to updates on internal structures
+    used.
+  - Modified internal path and URL definitions to rely exclusively on the API.
+  - Added the groups_restrict_categories_filter_the_posts filter which can be
+    used to let the plugin add its filter on the_posts (which it now doesn't
+    by default).
+
+* 1.2.0
+
+  - Improved queries to solve performance issues with large sets of posts.
+
+* 1.1.0
+
+  - Improved initialization to cover for taxonomies registered late.
+  - Added support for automatic updates.
+
+* 1.0.0
+
+  - Initial release.
