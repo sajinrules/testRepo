@@ -131,33 +131,37 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 						?>
 						<div class="portlet-body">
 							
-							<table class="table table-striped table-bordered table-hover table-scrollable" id="sample_3">
+							<div class=""><table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
 							<thead>
-							<tr>
-								<th>
+							<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 222px;" aria-label="
 									 Projects
-								</th>
-								<th>
-									 Progress %
-								</th>
-								<th>
-									 Project Lead (Users)
-								</th>
-								<th>
+								: activate to sort column ascending" aria-sort="ascending">
+									 Projects
+								</th><th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 279px;" aria-label="
+									 Progress
+								: activate to sort column ascending">
+									 Progress
+								</th><th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 153px;" aria-label="
+									 Project Lead
+								: activate to sort column ascending">
+									 Project Lead( (Users)
+								</th><th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 194px;" aria-label="
 									 Project Categories
-								</th>
-								<th>
+								: activate to sort column ascending">
+									 Project Categories
+								</th><th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 110px;" aria-label="
+									 Edit
+								: activate to sort column ascending">
 									 Edit
 								</th>
 							</tr>
 							</thead>
 							<tbody>
-						<?php
-						 // echo bloginfo('template_url'); 
-						 //
-						 //echo '<pre>';print_r($projects);exit;
-						 $odd = true;
-						 foreach ($projects as $project) {
+							
+							
+							<?php
+								$odd = true;
+							 foreach ($projects as $project) {
 							// echo $id = $project->ID;
 							$user = $project->users;
 							$key = key($project->users);
@@ -167,9 +171,11 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 		                }
 										
 						?>
-						<form name="gridEdit" action="<?php echo get_site_url(); ?>/projects/" id="gridEdit-<?php echo $project->ID; ?>" method="POST">
-						<tr id="<?php echo $project->ID; ?>" <?php if($odd){  } ?>> 
-								<td>
+						
+						
+							<tr role="row" class="<?php if($odd){ echo 'odd'; $odd = false; }else{ echo 'even'; $odd = true; } ?>" id="<?php echo $project->ID; ?>">
+								<form action="<?php bloginfo('wpurl'); ?>/projects/" id="gridEdit-<?php echo $project->ID; ?>" method="POST">
+								<td class="sorting_1">
 									<a id="project-name-label-<?php echo $project->ID; ?>" href="/project/?project_id=<?php echo $project->ID; ?>"><?php echo get_the_title( $project->ID ); ?> </a> 
 									<input type="text" class="form-control" style="display:none;" id="project-name-<?php echo $project->ID; ?>" name="project-name" value="<?php echo get_the_title( $project->ID ); ?>" />
 								</td>
@@ -206,12 +212,16 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 									<input type="hidden" value="1" name="editFormSubmit" />
 									
 								</td>
+								
+							 
+						</form>
 							</tr>
-							 <?php } ?>
-							</form>
+						<?php } ?>
+							
 							</tbody>
-							</table>
-							<?php cpm_pagination( $total_projects, $limit, $pagenum ); ?>
+							</table></div>
+							
+						<?php cpm_pagination( $total_projects, $limit, $pagenum ); ?>
 						
 					</div>
 
@@ -254,6 +264,7 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 			//e.preventDefault();
 		});
 			$('.btn-circle').click(function(){
+			
 			 var name = $(this).attr('name');
 			  //alert(name);
 				var id = $(this).attr('id');
@@ -277,6 +288,7 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 					 }
 					  /* handling Edit/save action triggering */
 						  //alert(name);
+						  
 		$('#gridEdit-'+name+'').submit(function(e){
  	 
 
@@ -294,7 +306,8 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 	var d = {};
 	d['project_name'] = project_name;
 	d['project_user'] = project_user;
-	$('#saverowBtn-'+name).hide();
+	$('#saverowBtn-'+name).toggle();
+	
 	$.ajax(
 	{
 		url : '<?php bloginfo('template_url'); ?>/page-ajax-controller.php',
@@ -325,7 +338,7 @@ $response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
 $("#gridEdit").submit(); //SUBMIT FORM
 					//$(this).prop('disabled', false);
 					//$('#'+id).hide();
-					$('#saverowBtn-'+rel).show();
+					$('#saverowBtn-'+trid).show();
 				});
 				});
 				
@@ -333,7 +346,7 @@ $("#gridEdit").submit(); //SUBMIT FORM
 					$(this).toggle();
 				});
 				
-				e.preventDefault();
+				//e.preventDefault();
 			});
 			
 	
@@ -375,18 +388,18 @@ $("#gridEdit").submit(); //SUBMIT FORM
 </div>
 <!-- END CONTENT -->
 	
-	
+<script src="<?php bloginfo('template_url'); ?>/assets/admin/pages/scripts/table-editable.js"></script>	
 <script>
 
 jQuery(document).ready(function() {  
  weDevs_CPM.init();
-/*   
+   
    // initiate layout and plugins
 	Metronic.init(); // init metronic core components
 	Layout.init(); // init current layout
 	Demo.init(); // init demo features
-	TableAdvanced.init();
-   */
+	TableEditable.init();
+   
 });
 
 </script>
