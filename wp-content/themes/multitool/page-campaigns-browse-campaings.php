@@ -11,7 +11,16 @@
 
 //$file = fopen("../../home/sajin/demodata/campaigns-facebook.csv","r");
 $file = fopen("./campaigns-facebook.csv","r");
+$a=[];
+while(!feof($file)){
+	if($i>10)
+		break;
+	array_push($a,fgetcsv($file));
+	$i++;
+}
 
+//exit();
+$file = fopen("./campaigns-facebook.csv","r");
 $arry = fgetcsv($file);
 function get_th($arry){
 	foreach ($arry as $key => $item) {
@@ -239,15 +248,26 @@ div.checker, div.checker span, div.checker input
 	<!-- END PAGE LEVEL PLUGINS -->
 	<script src="<?php bloginfo('template_url'); ?>/assets/admin/pages/scripts/components-pickers.js"></script>
 <script>
+
 $(document).ready(function(){
-	console.log("koppu");
+	var array = <?php echo json_encode($a);?>;
+	
 	$('input').change(function(e){
-		console.log($(this).val());
-		<?php
-		?>
+		var values =[]; 
+		if(!this.checked)
+			return;
+		
+		var index = parseInt($(this).val());
+		array.forEach(function(item){
+			values.push(item[index]);
+		})
+		alert(values);
+		//console.log("values:",values);
 	})
 });
-	
+
+
+
 
    // initiate layout and plugins
    //Metronic.init(); // init metronic core components
