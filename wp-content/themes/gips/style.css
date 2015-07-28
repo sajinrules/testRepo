@@ -1,0 +1,256 @@
+/*
+Theme Name: GIPS - multitool - child
+Theme URI: http://www.wecross.nl
+Author: We Cross
+Author URI: http://www.wecross.nl/
+Template: multitool
+Description: GIPS - Theme - Multitool Child Theme
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Admin
+Text Domain: gips-multitool-child
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.page-title h1{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.margin-loggedintop{
+	margin-top: 30px !important;
+	width: 100%;
+}
+
+.um-account-side li{
+	background-color: #FFFFFF !important;
+}
+
+.account-content{
+	background-color: #FFFFFF;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+}
+
+.account-tabs{
+	float: right;
+}
+
+div.checker, div.checker span, div.checker input,
+div.radio, div.radio span, div.radio input{
+	width: 0 !important;
+}
+
+.um-field-checkbox-state, .um-field-radio-state{
+	top: 19px !important;
+}
+
+.page-header.navbar .page-actions{
+	margin-top: 24px !important;
+}
+
+.um-profile-edit-a{
+	/*display: none;*/
+}
+
+.um-profile img{
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.has-leftmenu .page-content{
+	margin-left: 250px !important;
+}
+
+.portlet.light{
+	background-color: rgba(255,255,255,0.8) !important;
+}
+
+.page-header {
+	color: #023003;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.page-header.navbar{
+	background-color: rgba(255,255,255,0.8) !important;
+}
+
+.page-header ul li a, .page-header a{
+	color: #023003;
+}
+
+.page-header ul li:hover, .page-header ul li a:hover{
+	color: #FD989C;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.page-nav-account{
+	margin-top: 30px !important;
+}
+
+.page-header.navbar .page-logo .logo-default{
+	margin: 10px 10px 0 10px !important;
+}
+
+.page-header.navbar .page-logo{
+	width: 150px !important;
+}
+
+
+#bg {
+	z-index: -9999;
+  position: fixed; 
+  top: -30%; 
+  left: -50%; 
+  width: 200%; 
+  height: 100%;
+}
+#bg img {
+  position: absolute; 
+  top: 10%; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 100%;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle .badge.badge-pink{
+	background-color: #FD989C;
+}
+
+.search-table{
+	text-align: right;
+	padding-bottom: 20px;	
+}
+
+.menu-searchicon{
+	margin-top: 10px;
+}
+
+.btn-center{
+	text-align: center;
+}
+
+.page-toolbar{
+	float: right;
+	margin-top: -40px;
+}
+
+#knowledgebase-topmenu-item{
+	margin-top: 10px;
+}
+
+.jira-input-label{
+	padding-top: 10px;
+}
+
+.jira-submit{
+	margin-top: 10px;
+	float: right;
+	
+}
+
+#bg-meter-grad{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index: -999;
+}
+
+#bg-meter-grad.red{
+	background: rgba(235,35,46,0.4);
+}
+
+#bg-meter-grad.orange{
+	background: rgba(243,130,49,0.4);
+}
+
+#bg-meter-grad.green{
+	background: rgba(114,189,75,0.4);
+}
+
+.page-header.navbar .page-actions{
+	margin-top: 18px !important;
+}
+
+
+.page-title{
+	float: left;
+}
+
+.gezin-title-pics{
+	float: left;
+	margin-left: 10px;
+}
+
+.gezin-meter{
+	float: right;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.gezin-dash-plannen{
+	min-height: 400px;
+}
+
+.gezin-dash-plannen .fa-file{
+	font-size: 4em !important;
+	margin-right: 10px;
+}
+
+.login-logo{
+	text-align: center !important;
+	width: 100%;
+}
+
+.form-group{
+	width: 100% !important;
+}
