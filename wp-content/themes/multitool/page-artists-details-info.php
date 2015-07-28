@@ -63,7 +63,197 @@ the_post();
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->			
 			<!-- row data -->
-			
+			<div class="portlet light bordered form-fit">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="icon-user font-blue-hoki"></i>
+											<span class="caption-subject font-blue-hoki bold uppercase">Form Sample</span>
+											<span class="caption-helper">demo form...</span>
+										</div>
+										<div class="actions">
+											<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+											<i class="icon-cloud-upload"></i>
+											</a>
+											<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+											<i class="icon-wrench"></i>
+											</a>
+											<a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+											<i class="icon-trash"></i>
+											</a>
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+										<form action="#" class="form-horizontal form-bordered form-label-stripped">
+											<div class="form-body">
+												<div class="form-group">
+													<label class="control-label col-md-3">First Name</label>
+													<div class="col-md-9">
+														<input type="text" placeholder="small" class="form-control">
+														<span class="help-block">
+														This is inline help </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Last Name</label>
+													<div class="col-md-9">
+														<input type="text" placeholder="medium" class="form-control">
+														<span class="help-block">
+														This is inline help </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gender</label>
+													<div class="col-md-9">
+														<select class="form-control">
+															<option value="">Male</option>
+															<option value="">Female</option>
+														</select>
+														<span class="help-block">
+														Select your gender. </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Date of Birth</label>
+													<div class="col-md-9">
+														<input type="text" class="form-control" placeholder="dd/mm/yyyy">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Category</label>
+													<div class="col-md-9">
+														<div class="select2-container form-control select2_category" id="s2id_autogen27"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-28">Category 1</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen28" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-28" id="s2id_autogen28"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen28_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-28" id="s2id_autogen28_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-28">   </ul></div></div><select class="form-control select2_category select2-offscreen" tabindex="-1" title="">
+															<option value="Category 1">Category 1</option>
+															<option value="Category 2">Category 2</option>
+															<option value="Category 3">Category 5</option>
+															<option value="Category 4">Category 4</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Multi-Value Select</label>
+													<div class="col-md-9">
+														<div class="select2-container select2-container-multi form-control select2_sample1" id="s2id_autogen43"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen44" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default" id="s2id_autogen44" style="width: 110%;" placeholder="">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   <li class="select2-no-results">No matches found</li></ul></div></div><select class="form-control select2_sample1 select2-offscreen" multiple="" tabindex="-1">
+															<optgroup label="NFC EAST">
+															<option>Dallas Cowboys</option>
+															<option>New York Giants</option>
+															<option>Philadelphia Eagles</option>
+															<option>Washington Redskins</option>
+															</optgroup>
+															<optgroup label="NFC NORTH">
+															<option>Chicago Bears</option>
+															<option>Detroit Lions</option>
+															<option>Green Bay Packers</option>
+															<option>Minnesota Vikings</option>
+															</optgroup>
+															<optgroup label="NFC SOUTH">
+															<option>Atlanta Falcons</option>
+															<option>Carolina Panthers</option>
+															<option>New Orleans Saints</option>
+															<option>Tampa Bay Buccaneers</option>
+															</optgroup>
+															<optgroup label="NFC WEST">
+															<option>Arizona Cardinals</option>
+															<option>St. Louis Rams</option>
+															<option>San Francisco 49ers</option>
+															<option>Seattle Seahawks</option>
+															</optgroup>
+															<optgroup label="AFC EAST">
+															<option>Buffalo Bills</option>
+															<option>Miami Dolphins</option>
+															<option>New England Patriots</option>
+															<option>New York Jets</option>
+															</optgroup>
+															<optgroup label="AFC NORTH">
+															<option>Baltimore Ravens</option>
+															<option>Cincinnati Bengals</option>
+															<option>Cleveland Browns</option>
+															<option>Pittsburgh Steelers</option>
+															</optgroup>
+															<optgroup label="AFC SOUTH">
+															<option>Houston Texans</option>
+															<option>Indianapolis Colts</option>
+															<option>Jacksonville Jaguars</option>
+															<option>Tennessee Titans</option>
+															</optgroup>
+															<optgroup label="AFC WEST">
+															<option>Denver Broncos</option>
+															<option>Kansas City Chiefs</option>
+															<option>Oakland Raiders</option>
+															<option>San Diego Chargers</option>
+															</optgroup>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Loading Data</label>
+													<div class="col-md-9">
+														<div class="select2-container form-control select2_sample2" id="s2id_autogen59"><a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-60">Type to select an option</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen60" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-60" id="s2id_autogen60"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen60_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-60" id="s2id_autogen60_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-60">   </ul></div></div><input type="hidden" class="form-control select2_sample2 select2-offscreen" tabindex="-1" title="">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Tags Support List</label>
+													<div class="col-md-9">
+														<div class="select2-container select2-container-multi form-control select2_sample3" id="s2id_autogen75"><ul class="select2-choices">  <li class="select2-search-choice">    <div>red</div>    <a href="#" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-choice">    <div>blue</div>    <a href="#" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-field">    <label for="s2id_autogen76" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen76" style="width: 20px;" placeholder="">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   </ul></div></div><input type="hidden" class="form-control select2_sample3 select2-offscreen" value="red,blue" tabindex="-1">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Membership</label>
+													<div class="col-md-9">
+														<div class="radio-list">
+															<label>
+															<div class="radio"><span><input type="radio" name="optionsRadios2" value="option1"></span></div>
+															Free </label>
+															<label>
+															<div class="radio"><span class="checked"><input type="radio" name="optionsRadios2" value="option2" checked=""></span></div>
+															Professional </label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Street</label>
+													<div class="col-md-9">
+														<input type="text" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">City</label>
+													<div class="col-md-9">
+														<input type="text" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">State</label>
+													<div class="col-md-9">
+														<input type="text" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Post Code</label>
+													<div class="col-md-9">
+														<input type="text" class="form-control">
+													</div>
+												</div>
+												<div class="form-group last">
+													<label class="control-label col-md-3">Country</label>
+													<div class="col-md-9">
+														<select class="form-control">
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="form-actions">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+														<button type="button" class="btn default">Cancel</button>
+													</div>
+												</div>
+											</div>
+										</form>
+										<!-- END FORM-->
+									</div>
+								</div>
 			
 			<!-- end row data -->
 		<!-- END PAGE CONTENT-->
