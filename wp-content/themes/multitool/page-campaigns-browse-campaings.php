@@ -48,6 +48,7 @@ div.checker, div.checker span, div.checker input
 	vertical-align: top !important;
 }
 </style>
+
 	<!-- BEGIN CONTENT -->
 
 	<div class="page-content-wrapper has-leftmenu">
@@ -145,7 +146,9 @@ div.checker, div.checker span, div.checker input
 									
 											<!-- BEGIN INTERACTIVE CHART PORTLET-->
 											<div class="portlet-body">
-												<img src="<?php bloginfo('template_url'); ?>/images/chart1.png" width="100%">
+												<!-- <img src="<?php bloginfo('template_url'); ?>/images/chart1.png" width="100%"> -->
+												<button onclick="generate()"> Generate</button>
+												<svg id="visualisation" width="1000" height="500"></svg>
 											</div>											
 											</div>
 											<!-- END INTERACTIVE CHART PORTLET-->
@@ -247,25 +250,162 @@ div.checker, div.checker span, div.checker input
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<script src="<?php bloginfo('template_url'); ?>/assets/admin/pages/scripts/components-pickers.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 $(document).ready(function(){
+	$n=0;
+	var datas=[];
+	var parseDate = d3.time.format("%Y-%m-%d").parse; //2015-04-18
 	var array = <?php echo json_encode($a);?>;
 	
 	$('input').change(function(e){
-		var values =[]; 
+		var values =[],
+		datas=[];
+			$n=0; 
 		if(!this.checked)
 			return;
 		
 		var index = parseInt($(this).val());
+		
+		if(index<5 || index >15)
+			return;
+
 		array.forEach(function(item){
-			values.push(item[index]);
+			if($n>0){
+				console.log(item[0]);
+				datas.push({"sale":item[index],"year":parseDate(item[0])})
+			}
+			$n++;
 		})
-		alert(values);
-		//console.log("values:",values);
+		generate(datas);
 	})
 });
+	var data=[];
+      
+	function generate(data){
+		//updateData(randomData());
+		updateData(data);
+	}
 
+	var parseDate = d3.time.format("%d-%m-%Y").parse;
+      
+    function randomData(){
+        data = [{
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("31-05-1989")
+        }, {
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("25-05-1989")
+        }, {
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("20-05-1989")
+        }, {
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("15-05-1989")
+        }, {
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("10-05-1989")
+        }, {
+            "sale": Math.floor((Math.random() * 100) + 1),
+            "year": parseDate("05-05-1989")
+        }];
+        return data;
+    } 
+      
+    //randomData();
+	
+	var vis = d3.select("#visualisation"),
+		WIDTH = 1000,
+		HEIGHT = 500,
+		MARGINS = {
+			top: 20,
+			right: 20,
+			bottom: 20,
+			left: 50
+		}
+		var color= "red";
+      
+    xScale = d3.time.scale().range([MARGINS.left, WIDTH - MARGINS.right])
+        .domain([d3.min(data, function(d) {
+          return d.year;
+        }), d3.max(data, function(d) {
+          return d.year;
+        })]);
+      
+    yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom])
+        .domain([d3.min(data, function(d) {
+          return d.sale;
+        }), d3.max(data, function(d) {
+          return d.sale;
+        })]);
+      
+	xAxis = d3.svg.axis()
+		.scale(xScale)
+		.ticks(10)
+
+	yAxis = d3.svg.axis()
+		.scale(yScale)
+		.ticks(10)
+		.orient("left");
+
+	vis.append("svg:g")
+		.attr("class","axis")
+		.attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+		.call(xAxis); 
+
+	vis.append("svg:g")
+		.attr("class","y axis")
+		.call(yAxis)
+		.attr("transform", "translate(" + (MARGINS.left) + ",0)")
+
+	var lineGen = d3.svg.line()
+		.x(function(d) {
+		  return xScale(d.year);
+		})
+		.y(function(d) {
+		  return yScale(d.sale);
+		})
+		.interpolate("basis");
+
+	vis.append('svg:path')
+		.attr("class", "line")
+		.attr('d', lineGen(data))
+		.attr('stroke',color)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');  
+
+	function updateData(data) {
+        // Scale the range of the data again 
+        console.log(data);
+        //return;
+        xScale.domain([d3.min(data,function(d){
+                return d.year;
+              }), d3.max(data, function(d) {
+                return d.year;
+              })]);
+        yScale.domain([d3.min(data, function(d) {
+                  return d.sale;
+                }), d3.max(data, function(d) {
+                  return d.sale;
+                })]);
+
+
+        // Make the changes
+          vis.select('.line')
+            .attr('d', lineGen(data))
+            .attr('stroke',color)
+            .attr('stroke-width', 2)
+            .attr('fill', 'none');
+          
+          vis.append("svg:g")
+            .attr("class","axis")
+            .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+            .call(xAxis); 
+          
+          vis.select(".y.axis") // change the y axis
+            .call(yAxis);
+    }	
 
 
 
