@@ -46,6 +46,10 @@ jQuery(document).ready(function() {
    Tasks.initDashboardWidget();
    TableManaged.init();
    TableAdvanced.init();
+   UIExtendedModals.init();
+   ComponentsDropdowns.init();
+
+
  
 });
 </script>

@@ -9,42 +9,58 @@
  */
 get_header(); 
 the_post();
+$servername = "213.187.242.145";
+$username = "wecrossdata";
+$password = "Rpr5VCSmte3K99ZK";
+$dbname = "dataviews";
 
-// demo columns = on production data, this comes from livedata set for this page
-$getcolumns[] = array('id' => 'col_aid', 'label'=>'ArtistID');
-$getcolumns[] = array('id' => 'col_name', 'label'=>'Artistname');
-$getcolumns[] = array('id' => 'col_channels', 'label'=>'Channels');
-$getcolumns[] = array('id' => 'col_rep', 'label'=>'Reputation');
-$getcolumns[] = array('id' => 'col_totalplays', 'label'=>'Nr of Plays');
-$getcolumns[] = array('id' => 'col_deltaplays', 'label'=>'Delta Plays');
-$getcolumns[] = array('id' => 'col_gigs', 'label'=>'Nr of Gigs');
-$getcolumns[] = array('id' => 'col_gigsnow', 'label'=>'Gigs this month');
-$getcolumns[] = array('id' => 'col_gigsnext', 'label'=>'Gigs next month');
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+$sql = "SELECT * FROM D028";
+$result = $conn->query($sql);
+echo "deal:".$result->num_rows;
+
+$getcolumns[] = array('id' => 'col_name', 'label'=>'Name');
 $getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
-$getcolumns[] = array('id' => 'col_totalchannels', 'label'=>'Nr of Channels');
+$getcolumns[] = array('id' => 'col_totalplays', 'label'=>'Nr of Plays');
+$getcolumns[] = array('id' => 'col_totalchannels', 'label'=>'Nr of Facebook Fans');
+$getcolumns[] = array('id' => 'col_gigs', 'label'=>'Nr of Gigs');
 $getcolumns[] = array('id' => 'col_totalnews', 'label'=>'Nr of newsitems');
-$getcolumns[] = array('id' => 'col_buzz', 'label'=>'Buzz');
 
-// demo dataset > to do, data set from data bigquery and main data-server
-$i = 0;
-while($i<100){
-$data[] = array(
-	'id' => 300,
-	'name' => 'artistname',
-	'reputation' => 4,
-	'channels' => 'facebook, twitter, soundcloud',
-	'totalplays' => 10000,
-	'deltaplays' => 400,
-	'nrofgigs' => 10,
-	'gigsnow' => 2,
-	'gigsnext' => 6,
-	'totaltracks' => 20,
-	'totalchannels' => 5,
-	'totalnews' => 40,
-	'buzz' => 4000 
-);
-$i++;
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $data[] = array(
+			'name' => $row['sq1_name'],
+			'totaltracks' => $row['sq1_total_in_repetoire'],
+			'deltaplays' => $row['sq1_nr_of_plays'],
+			'totalchannels' => $row['dff_maxFacebookFans'],
+			'nrofgigs' => $row['nr_of_gigs'],
+			'totalnews' => $row['nr_of_gigs']
+		);
+    }
+} else {
+    echo "0 results";
 }
+
+/*$i = 0;
+
+while($i<100){
+	$data[] = array(
+		'name' => 'artistname',
+		'totaltracks' => 20,
+		'deltaplays' => 400,
+		'totalchannels' => 5,
+		'nrofgigs' => 10,
+		'totalnews' => 40
+	);
+$i++;
+}*/
 ?>
 	<!-- BEGIN CONTENT -->
 

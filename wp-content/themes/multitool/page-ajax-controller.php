@@ -13,6 +13,28 @@ include_once('../../../wp-config.php');
 include_once('../../../wp-load.php');
 include_once('../../../wp-includes/wp-db.php');
 
+//print_r($__POST);
+
+ if (isset($_POST[''])){
+	 
+	 $obj=json_decode($_POST);
+	 // print_r($_POST);
+	 echo $obj->project_name;
+	 echo $obj->project_user;
+	// 
+	//echo $project_name = $_GET['project_name'];
+	 //echo $project_user = $_GET['project_user'];
+	 
+	//$projectname = json_decode($project_name);
+//$projectuser = json_decode($project_user);
+$response = array('1'=>$obj->project_name,'2'=>$obj->project_user);
+//echo $response;
+
+  echo json_encode($response);
+ }
+
+
+
 if(isset($_POST['action']) && !empty($_POST['action'])) {
     $action = $_POST['action'];
     switch($action) {

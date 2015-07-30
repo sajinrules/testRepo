@@ -43,7 +43,29 @@ Task list
 	<!-- BEGIN CONTENT -->
 
 	<div class="page-content-wrapper has-leftmenu">
-
+<!-- BEGIN PAGE HEAD -->
+			<div class="page-head">
+				<!-- BEGIN PAGE TITLE -->
+				<div class="page-title">
+					<h1><?php the_title(); ?></h1>
+				</div>
+				<!-- END PAGE TITLE -->
+			</div>
+			<!-- END PAGE HEAD -->
+			<?php 
+				getJiraLink();
+			?>
+			<!-- BEGIN PAGE BREADCRUMB -->
+			<ul class="page-breadcrumb breadcrumb">
+				<li>
+					<a href="/">Agile</a>
+					<i class="fa fa-circle"></i>
+				</li>
+				<li>
+					<!--<a href="#">...</a>-->
+				</li>
+			</ul>
+			<!-- END PAGE BREADCRUMB -->
 		<div class="page-content">
 			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -68,18 +90,7 @@ Task list
 			<!-- /.modal -->
 			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<!-- BEGIN PAGE HEADER-->
-			<!-- BEGIN PAGE HEAD -->
-			<div class="page-head">
-				<!-- BEGIN PAGE TITLE -->
-				<div class="page-title">
-					<h1><?php the_title(); ?></h1>
-				</div>
-				<!-- END PAGE TITLE -->
-			</div>
-			<!-- END PAGE HEAD -->
-			<?php 
-				getJiraLink();
-			?>
+			
 			<div class='row'>
 				<div class='col-md-12'>
 					<div class="portlet light bordered">
@@ -90,16 +101,16 @@ Task list
 					<div class="row inbox">
 						<div class="col-md-2">
 							<ul class="inbox-nav margin-bottom-10">
-								<li class="compose-btn">
+								<!--<li class="compose-btn">
 									<a href="javascript:;" data-title="Compose" class="btn green">
 									<i class="fa fa-edit"></i> Create Task </a>
-								</li>
+								</li>-->
 								<li class="inbox active">
 									<a href="javascript:;" class="btn" data-title="Inbox">
-									My Tasks(3) </a>
+									My Tasks (<?php echo count($lists); ?>) </a>
 									<b></b>
 								</li>
-								<li class="sent">
+								<!--<li class="sent">
 									<a class="btn" href="javascript:;" data-title="Sent">
 									Archive </a>
 									<b></b>
@@ -113,21 +124,21 @@ Task list
 									<a class="btn" href="javascript:;" data-title="Trash">
 									Trash </a>
 									<b></b>
-								</li>
+								</li>-->
 							</ul>
 						</div>
 	 
 						<div class="col-md-10">
 							<div class="inbox-header">
 								<h1 class="pull-left">Tasks</h1>
-								<form class="form-inline pull-right" action="index.html">
+								<!--<form class="form-inline pull-right" action="index.html">
 									<div class="input-group input-medium">
 										<input type="text" class="form-control" placeholder="Search">
 										<span class="input-group-btn">
 										<button type="submit" class="btn green"><i class="fa fa-search"></i></button>
 										</span>
 									</div>
-								</form>
+								</form>-->
 							</div>
 							<div class="inbox-loading" style="display: none;">
 								 Loading...
@@ -158,6 +169,7 @@ Task list
 				</li>
 			</ul>
 		</div>
+
 	</th>
 	<th class="pagination-control" colspan="3">
 		<span class="pagination-info">
@@ -185,6 +197,7 @@ Task list
 			 <?php }else{?>
 			 <tr class="unread" data-messageid="1">
 			 <?php } ?>
+
 	<td class="inbox-small-cells">
 		<div class="checker"><span><input type="checkbox" class="mail-checkbox"></span></div>
 	</td>
@@ -202,16 +215,34 @@ Task list
 	</td>
 	<td class="view-message text-right">
 	   <?php
-                    $complete = $task_obj->get_completeness( $list->ID, $project_id );
+	      $postDate=$list->post_date;
+		
+		$pieces = explode(" ", $postDate);
+		//echo $pieces[0];
+	   $mydate = strtotime($pieces[0]);
+	$newTime=$pieces[1];
+	  
+	  //echo date("Y-m-d H:i:s");  
+	   if($pieces[0] == date('Y-m-d')){
+		   echo $newTime;
+	   }else{
+		   echo date('F j', $mydate);
+		  //echo strtotime($postDate);
+		    // echo $list->post_date;
+	   }
+	   
+	 
+                   // $complete = $task_obj->get_completeness( $list->ID, $project_id );
                    // echo cpm_task_completeness( $complete['total'], $complete['completed'] );
-					 $percentage = (100 * $complete['completed']) / $complete['total'];
+				//	 $percentage = (100 * $complete['completed']) / $complete['total'];
                     ?>
-					 <div class="cpm-progress cpm-progress-info">
+				<!--	 <div class="cpm-progress cpm-progress-info">
 					 <div class="progress progress-striped">
-	<div style="width:<?php echo $percentage; ?>%" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>	
+	<div style="width:<?php //echo $percentage; ?>%" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>	
 				 </div>
 				 </div>
-<div class="text"><?php printf( '%s: %d%% (%d of %d)', __( 'Completed', 'cpm' ), $percentage, $complete['completed'] , $complete['total'] ); ?></div>					
+<div class="text"><?php //printf( '%s: %d%% (%d of %d)', __( 'Completed', 'cpm' ), $percentage, $complete['completed'] , $complete['total'] ); ?></div>					
+	-->
 	</td>
 </tr>
             <?php
@@ -290,7 +321,14 @@ Demo.init(); // init demo features
 </script>
 <style>
 .inbox td.text-right{
-	width:145px !important;
+	width:175px !important;
+}
+div.checker span, div.checker{
+	width:20px !important;
+}
+.projects{
+	margin-top: 79px;
+	
 }
 </style>
 <?php //get_sidebar(); ?>
