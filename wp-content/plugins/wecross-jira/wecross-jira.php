@@ -145,7 +145,7 @@ function getStoredLink(){
 	$sql = "SELECT * FROM jiralinks WHERE wpurl = '".$url."'";
 	$res = DB::getSQL($sql);
 	
-	while($row = mysql_fetch_object($res)){
+	while($row = mysqli_fetch_object($res)){
 		$getjira = array('url' => $row->jiraurl, 'nr' => $row->jiranummer);
 	}
 	
@@ -182,8 +182,7 @@ class DB{
 	*/
 	
 	public static function Connect() { 
-		self::$connection = mysql_connect(self::$server, self::$dbusername, self::$dbpassword) or die(mysql_error()); 
-		self::$db = mysql_select_db(self::$db_name,self::$connection) or die(mysql_error());
+		self::$connection = mysqli_connect(self::$server, self::$dbusername, self::$dbpassword, self::$db_name) or die(mysql_error()); 
 	}
 	
 	public static function getConnection() { 
@@ -191,22 +190,21 @@ class DB{
 	}
 	
 	public static function Close() { 
-		mysql_close(self::$connection); 
+		mysqli_close(self::$connection);
 	}
 	
 	// perform a database query, returns the unique_id 
 	public static function doSQL($sql)
 	{	
-		
-		mysql_query($sql, self::$connection) or die(mysql_error());
-		$return = mysql_insert_id();
-		return $return;
+		mysqli_query(self::$connection, $sql); 
+		$last_id = mysqli_insert_id(self::$connection);
+		return $last_id;
 	}
 	
 	public static function getSQL($sql)
 	{	
 		// perform sql query
-		$return = mysql_query($sql, self::$connection) or die(mysql_error());
+		$return = mysqli_query(self::$connection, $sql); 
 		return $return;
 	}
 }
