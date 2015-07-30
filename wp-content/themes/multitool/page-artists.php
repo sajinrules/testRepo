@@ -7,6 +7,23 @@
  * @subpackage Multitool
  * @since We Cross 1.0
  */
+$servername = "213.187.242.145";
+$username = "wecrossdata";
+$password = "Rpr5VCSmte3K99ZK";
+$dbname = "dataviews";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+$sql = "SELECT * FROM D028";
+$result = $conn->query($sql);
+echo "deal:".$result->num_rows;
+//exit();
 get_header(); 
 the_post();
 ?>
@@ -82,7 +99,7 @@ the_post();
 							<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 225px;" aria-sort="ascending" aria-label="
 									 Rendering engine
 								: activate to sort column ascending">
-									 Artistname
+									 Name
 								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 290px;" aria-label="
 									 Browser
 								: activate to sort column ascending">
@@ -109,83 +126,7 @@ the_post();
 								<td>12 may 2016</td>
 								<td>18 may 2016</td>
 							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
+							
 							</tbody>
 							</table>
 						</div>					
