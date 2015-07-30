@@ -14,7 +14,7 @@ $dbname = "dataviews";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
-
+$count= 0;
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -96,36 +96,62 @@ the_post();
 						<div class="table-scrollable">
 							<table class="table table-striped table-bordered table-hover dataTable no-footer" id="sample_2" role="grid" aria-describedby="sample_2_info">
 							<thead>
-							<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 225px;" aria-sort="ascending" aria-label="
+							<tr role="row">
+								<th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 225px;" aria-sort="ascending" aria-label="
 									 Rendering engine
 								: activate to sort column ascending">
 									 Name
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 290px;" aria-label="
+								</th>
+								<th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 290px;" aria-label="
 									 Browser
 								: activate to sort column ascending">
-									 Genre
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 264px;" aria-label="
+									 Total Repetoire
+								</th>
+								<th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 264px;" aria-label="
 									 Platform(s)
 								: activate to sort column ascending">
-									 Productions
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 191px;" aria-label="
+									 plays
+								</th>
+								<th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 191px;" aria-label="
 									 Engine version
 								: activate to sort column ascending">
-									 Start Date
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 136px;" aria-label="
+									 Max FB fans
+								</th>
+								<th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 136px;" aria-label="
 									 CSS grade
 								: activate to sort column ascending">
-									End Date
-								</th></tr>
+									Gigs
+								</th>
+								<th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 136px;" aria-label="
+									 CSS grade
+								: activate to sort column ascending">
+									new Items
+								</th>
+							</tr>
 							</thead>
 							<tbody>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
+								<?php
+								if ($result->num_rows > 0) {
+								    while($row = $result->fetch_assoc()){
+								    	/*if($count>10)
+								    		break;*/
+						    	?>
+						    		<tr role="row" class="odd">
+										<td class="sorting_1"> <a href='/artists/detail'><?php echo $row['sq1_name'];?></a> </td>
+										<td><?php echo $row['sq1_total_in_repetoire'];?></td>
+										<td><?php echo $row['sq1_nr_of_plays'];?></td>
+										<td><?php echo $row['dff_maxFacebookFans'];?></td>
+										<td><?php echo $row['nr_of_gigs'];?></td>
+										<td><?php echo $row['nr_of_newsitems'];?></td>
+									</tr>
+						    	<?php
+						    		// /$count++;
+								    }
+								} else {
+								    echo "0 results";
+								}
+								?>
+							
 							
 							</tbody>
 							</table>
