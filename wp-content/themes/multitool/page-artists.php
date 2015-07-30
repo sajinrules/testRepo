@@ -9,6 +9,42 @@
  */
 get_header(); 
 the_post();
+
+// demo columns = on production data, this comes from livedata set for this page
+$getcolumns[] = array('id' => 'col_aid', 'label'=>'ArtistID');
+$getcolumns[] = array('id' => 'col_name', 'label'=>'Artistname');
+$getcolumns[] = array('id' => 'col_channels', 'label'=>'Channels');
+$getcolumns[] = array('id' => 'col_rep', 'label'=>'Reputation');
+$getcolumns[] = array('id' => 'col_totalplays', 'label'=>'Nr of Plays');
+$getcolumns[] = array('id' => 'col_deltaplays', 'label'=>'Delta Plays');
+$getcolumns[] = array('id' => 'col_gigs', 'label'=>'Nr of Gigs');
+$getcolumns[] = array('id' => 'col_gigsnow', 'label'=>'Gigs this month');
+$getcolumns[] = array('id' => 'col_gigsnext', 'label'=>'Gigs next month');
+$getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
+$getcolumns[] = array('id' => 'col_totalchannels', 'label'=>'Nr of Channels');
+$getcolumns[] = array('id' => 'col_totalnews', 'label'=>'Nr of newsitems');
+$getcolumns[] = array('id' => 'col_buzz', 'label'=>'Buzz');
+
+// demo dataset > to do, data set from data bigquery and main data-server
+$i = 0;
+while($i<100){
+$data[] = array(
+	'id' => 300,
+	'name' => 'artistname',
+	'reputation' => 4,
+	'channels' => 'facebook, twitter, soundcloud',
+	'totalplays' => 10000,
+	'deltaplays' => 400,
+	'nrofgigs' => 10,
+	'gigsnow' => 2,
+	'gigsnext' => 6,
+	'totaltracks' => 20,
+	'totalchannels' => 5,
+	'totalnews' => 40,
+	'buzz' => 4000 
+);
+$i++;
+}
 ?>
 	<!-- BEGIN CONTENT -->
 
@@ -66,130 +102,46 @@ the_post();
 			<div class='row'>
 				<div class='col-md-12'>
 					<div class="portlet light bordered">
-					
-						<div class="portlet-body">											
-							<!-- BEGIN table portlet-->
+						
+						<div class="portlet-body">
 							
-							<div class="col-md-12 col-sm-12 search-table">
-								<div id="sample_2_filter" class="dataTables_filter">
-									<label>Search:<input type="search" class="form-control input-small input-inline" placeholder="" aria-controls="sample_2"></label>
+							<table class="table table-striped table-bordered table-hover" id="browserlist">
+								<div class="actions">
+								<div class="btn-group">
+									<a class="btn default" href="javascript:;" data-toggle="dropdown">
+									Columns <i class="fa fa-angle-down"></i>
+									</a>
+									<div id="browserlist_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+										<?php foreach($getcolumns as $select ){ ?>
+										<label><input type="checkbox" checked data-column="<?php echo $select['id'] ?>"><?php echo $select['label']; ?></label>
+										<?php } ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="table-scrollable">
-							<table class="table table-striped table-bordered table-hover dataTable no-footer" id="sample_2" role="grid" aria-describedby="sample_2_info">
 							<thead>
-							<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 225px;" aria-sort="ascending" aria-label="
-									 Rendering engine
-								: activate to sort column ascending">
-									 Artistname
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 290px;" aria-label="
-									 Browser
-								: activate to sort column ascending">
-									 Genre
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 264px;" aria-label="
-									 Platform(s)
-								: activate to sort column ascending">
-									 Productions
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 191px;" aria-label="
-									 Engine version
-								: activate to sort column ascending">
-									 Start Date
-								</th><th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 136px;" aria-label="
-									 CSS grade
-								: activate to sort column ascending">
-									End Date
-								</th></tr>
+							<tr>
+								<?php foreach($getcolumns as $select ){ ?>
+								<th class='<?php echo $select['id'] ?>'>
+									 <?php echo $select['label']; ?>
+								</th>
+								<?php } ?>
+								
+							</tr>
 							</thead>
 							<tbody>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
+								<?php foreach($data as $row){ ?>
+								<tr class='browse-row' id='row<?php echo $i; ?>' data-id='<?php echo $row['id']; ?>'>
+								<?php foreach($row as $column => $columndata ){ ?>
+								<td class='<?php echo $column ?>'>
+									 <?php echo $columndata; ?>
+								</td>
+								<?php } ?>
 							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"> <a href='/artists/detail'>Artistname</a> </td>
-								<td>Artist genres</td>
-								<td>Productionnames</td>
-								<td>12 may 2016</td>
-								<td>18 may 2016</td>
-							</tr>
+							<?php $i++; }  ?>
 							</tbody>
 							</table>
-						</div>					
-					</div>	
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- end row data -->
@@ -197,13 +149,7 @@ the_post();
 	</div>
 </div>
 <!-- END CONTENT -->
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.stack.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.crosshair.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.categories.min.js"></script>
-	
+
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
@@ -220,181 +166,61 @@ jQuery(document).ready(function() {
    Metronic.init(); // init metronic core components
    Layout.init(); // init current layout
    Demo.init(); // init demo features
-   ChartsFlotcharts.init();
-   ChartsFlotcharts.initCharts();
-   ChartsFlotcharts.initPieCharts();
-   ChartsFlotcharts.initBarCharts();
-   ComponentsPickers.init();
    
-   function chart2() {
-                if ($('#chart_2').size() != 1) {
-                    return;
-                }
+   // browser code = enable the browser functionality > column ordering and column-selection, search functions and nr.of items   
+   	var table = $('#browserlist');
+    var oTable = table.dataTable({
+        "language": {
+            "aria": {
+                "sortAscending": ": activate to sort column ascending",
+                "sortDescending": ": activate to sort column descending"
+            },
+            "emptyTable": "No data available in table",
+            "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+            "infoEmpty": "No entries found",
+            "infoFiltered": "(filtered1 from _MAX_ total entries)",
+            "lengthMenu": "Show _MENU_ entries",
+            "search": "Search:",
+            "zeroRecords": "No matching records found"
+        },
+        "order": [
+            [0, 'asc']
+        ],
+        "lengthMenu": [
+            [5, 15, 20, -1],
+            [5, 15, 20, "All"] // change per page values here
+        ],
+        "pageLength": 10, // set the initial value,
+        "columnDefs": [{  // set default column settings
+            'orderable': false,
+            'targets': [0]
+        }, {
+            "searchable": false,
+            "targets": [0]
+        }],
+        "order": [
+            [1, "asc"]
+        ]           
+    });
 
-                function randValue() {
-                    return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-                }
-                var pageviews = [
-                    [1, randValue()],
-                    [2, randValue()],
-                    [3, 2 + randValue()],
-                    [4, 3 + randValue()],
-                    [5, 5 + randValue()],
-                    [6, 10 + randValue()],
-                    [7, 15 + randValue()],
-                    [8, 20 + randValue()],
-                    [9, 25 + randValue()],
-                    [10, 30 + randValue()],
-                    [11, 35 + randValue()],
-                    [12, 25 + randValue()],
-                    [13, 15 + randValue()],
-                    [14, 20 + randValue()],
-                    [15, 45 + randValue()],
-                    [16, 50 + randValue()],
-                    [17, 65 + randValue()],
-                    [18, 70 + randValue()],
-                    [19, 85 + randValue()],
-                    [20, 80 + randValue()],
-                    [21, 75 + randValue()],
-                    [22, 80 + randValue()],
-                    [23, 75 + randValue()],
-                    [24, 70 + randValue()],
-                    [25, 65 + randValue()],
-                    [26, 75 + randValue()],
-                    [27, 80 + randValue()],
-                    [28, 85 + randValue()],
-                    [29, 90 + randValue()],
-                    [30, 95 + randValue()]
-                ];
-                var visitors = [
-                    [1, randValue() - 5],
-                    [2, randValue() - 5],
-                    [3, randValue() - 5],
-                    [4, 6 + randValue()],
-                    [5, 5 + randValue()],
-                    [6, 20 + randValue()],
-                    [7, 25 + randValue()],
-                    [8, 36 + randValue()],
-                    [9, 26 + randValue()],
-                    [10, 38 + randValue()],
-                    [11, 39 + randValue()],
-                    [12, 50 + randValue()],
-                    [13, 51 + randValue()],
-                    [14, 12 + randValue()],
-                    [15, 13 + randValue()],
-                    [16, 14 + randValue()],
-                    [17, 15 + randValue()],
-                    [18, 15 + randValue()],
-                    [19, 16 + randValue()],
-                    [20, 17 + randValue()],
-                    [21, 18 + randValue()],
-                    [22, 19 + randValue()],
-                    [23, 20 + randValue()],
-                    [24, 21 + randValue()],
-                    [25, 14 + randValue()],
-                    [26, 24 + randValue()],
-                    [27, 25 + randValue()],
-                    [28, 26 + randValue()],
-                    [29, 27 + randValue()],
-                    [30, 31 + randValue()]
-                ];
-
-                var plot = $.plot($("#chart_2"), [{
-                    data: pageviews,
-                    label: "Unique Visits",
-                    lines: {
-                        lineWidth: 1,
-                    },
-                    shadowSize: 0
-
-                }, {
-                    data: visitors,
-                    label: "Page Views",
-                    lines: {
-                        lineWidth: 1,
-                    },
-                    shadowSize: 0
-                }], {
-                    series: {
-                        lines: {
-                            show: true,
-                            lineWidth: 2,
-                            fill: true,
-                            fillColor: {
-                                colors: [{
-                                    opacity: 0.05
-                                }, {
-                                    opacity: 0.01
-                                }]
-                            }
-                        },
-                        points: {
-                            show: true,
-                            radius: 3,
-                            lineWidth: 1
-                        },
-                        shadowSize: 2
-                    },
-                    grid: {
-                        hoverable: true,
-                        clickable: true,
-                        tickColor: "#eee",
-                        borderColor: "#eee",
-                        borderWidth: 1
-                    },
-                    colors: ["#d12610", "#37b7f3", "#52e136"],
-                    xaxis: {
-                        ticks: 11,
-                        tickDecimals: 0,
-                        tickColor: "#eee",
-                    },
-                    yaxis: {
-                        ticks: 11,
-                        tickDecimals: 0,
-                        tickColor: "#eee",
-                    }
-                });
-
-
-                function showTooltip(x, y, contents) {
-                    $('<div id="tooltip">' + contents + '</div>').css({
-                        position: 'absolute',
-                        display: 'none',
-                        top: y + 5,
-                        left: x + 15,
-                        border: '1px solid #333',
-                        padding: '4px',
-                        color: '#fff',
-                        'border-radius': '3px',
-                        'background-color': '#333',
-                        opacity: 0.80
-                    }).appendTo("body").fadeIn(200);
-                }
-
-                var previousPoint = null;
-                $("#chart_2").bind("plothover", function(event, pos, item) {
-                    $("#x").text(pos.x.toFixed(2));
-                    $("#y").text(pos.y.toFixed(2));
-
-                    if (item) {
-                        if (previousPoint != item.dataIndex) {
-                            previousPoint = item.dataIndex;
-
-                            $("#tooltip").remove();
-                            var x = item.datapoint[0].toFixed(2),
-                                y = item.datapoint[1].toFixed(2);
-
-                            showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
-                        }
-                    } else {
-                        $("#tooltip").remove();
-                        previousPoint = null;
-                    }
-                });
-            }
-            
-            chart2();
-   
+    var oTableColReorder = new $.fn.dataTable.ColReorder( oTable );
+	var tableColumnToggler = $('#browserlist_column_toggler');
+    var tableWrapper = $('#browserlist_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
+    tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown   
+ 
+	$('input[type="checkbox"]', tableColumnToggler).change(function () {
+        /* Get the DataTables object again - this is not a recreation, just a get of the object */
+        var iCol = $(this).attr("data-column");
+        $("."+iCol).toggle();
+    });
+    
+    // onclick function on row-click on table
+    $('.browse-row').click(function(){
+	     //window.location = 'detail?id='+$(this).attr('data-id');
+	     window.location = 'detail';
+    });
+        
+       
 });
 
 </script>
