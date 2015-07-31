@@ -9,7 +9,53 @@
  */
 get_header(); 
 the_post();
+require('./wp-db-init.php');
+
+
+$sql = "SELECT * FROM D032";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+    	$data[] = array(
+        	'date' 			=> $row['day'],
+			'trackPlays'	=> $row['trackPlays'],
+			'fans'			=> $row['fans'],
+			'buzz'			=> $row['buzz']
+
+		);
+        /*$trackPlays[] = array(
+        	'date' 	=> $row['day'],
+			'value' => $row['trackPlays']
+		);
+		$fans[] = array(
+        	'date' 	=> $row['day'],
+			'value' => $row['fans']
+		);
+		
+		$buzz[] = array(
+        	'date' 	=> $row['day'],
+			'value' => $row['buzz']
+		);*/
+    }
+} else {
+    echo "0 results";
+}
+
+if (isset($_GET['row'])){
+ 	$row = $_GET['row'];
+}else {
+	die("url format error");
+}
+//exit();
 ?><?php getMenuArtists(); ?>
+	<style type="text/css">
+		#chartdiv {
+			width	: 100%;
+			height	: 500px;
+		}									
+	
+	</style>
 	<!-- BEGIN CONTENT -->
 
 	<div class="page-content-wrapper has-leftmenu">
@@ -51,6 +97,7 @@ the_post();
 			?>
 			<!-- BEGIN PAGE BREADCRUMB -->
 			<ul class="page-breadcrumb breadcrumb">
+				
 				<li>
 					<a href="/">Artists</a>
 					<i class="fa fa-circle"></i>
@@ -88,6 +135,7 @@ the_post();
 								</a>
 							</div>
 						</div>
+						<div id="chartdiv"></div>
 						<div class="portlet-body form">
 							<form role="form" class="form-horizontal">
 								<div class="form-body">
@@ -1073,6 +1121,9 @@ the_post();
 	</div>
 </div>
 <!-- END CONTENT -->
+	<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
@@ -1090,9 +1141,10 @@ the_post();
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<script src="<?php bloginfo('template_url'); ?>/assets/admin/pages/scripts/components-pickers.js"></script>
+	
 <script>
 jQuery(document).ready(function() {       
-   // initiate layout and plugins
+   /*// initiate layout and plugins
    Metronic.init(); // init metronic core components
    Layout.init(); // init current layout
    Demo.init(); // init demo features
@@ -1100,10 +1152,102 @@ jQuery(document).ready(function() {
    ChartsFlotcharts.initCharts();
    ChartsFlotcharts.initPieCharts();
    ChartsFlotcharts.initBarCharts();
-   ComponentsPickers.init();
-   
+   ComponentsPickers.init();*/
+    
    
 });
+	var data  = [],
+	dataProvider = [];
+
+	data = <?php echo json_encode($data);?>;
+
+	/*var chartData = [];
+	function generateChartData() {
+	    var firstDate = new Date();
+	    firstDate.setTime(firstDate.getTime() - 10 * 24 * 60 * 60 * 1000);
+
+	    for (var i = firstDate.getTime(); i < (firstDate.getTime() + 10 * 24 * 60 * 60 * 1000); i += 60 * 60 * 1000) {
+	        var newDate = new Date(i);
+
+	        if (i == firstDate.getTime()) {
+	            var value1 = Math.round(Math.random() * 10) + 1;
+	        } else {
+	            var value1 = Math.round(chartData[chartData.length - 1].value1 / 100 * (90 + Math.round(Math.random() * 20)) * 100) / 100;
+	        }
+
+	        if (newDate.getHours() == 12) {
+	            // we set daily data on 12th hour only
+	            var value2 = Math.round(Math.random() * 12) + 1;
+	            chartData.push({
+	                date: newDate,
+	                value1: value1,
+	                value2: value2
+	            });
+	        } else {
+	            chartData.push({
+	                date: newDate,
+	                value1: value1
+	            });
+	        }
+	    }
+	}
+	generateChartData();*/
+	
+	//console.log(data);
+	data.forEach(function(obj){
+		dataProvider.push({'buzz':obj.buzz,'fans':obj.fans,'trackPlays':obj.trackPlays,'date':toDate(obj.date)});
+	});
+	
+	function toDate(string){
+		return new Date(string);
+	}
+	
+		//console.log(dataProvider);
+	var chart = AmCharts.makeChart("chartdiv", {
+	    "type": "serial",
+	    "theme": "light",
+	    "marginRight": 80,
+	    "dataProvider": dataProvider,
+	    "valueAxes": [{
+	        "axisAlpha": 0.1
+	    }],
+
+	    "graphs": [{
+	        "balloonText": "[[title]]: [[value]]",
+	        "columnWidth": 20,
+	        "fillAlphas": 1,
+	        "title": "daily",
+	        "type": "column",
+	        "valueField": "fans"
+	    },{
+	        "balloonText": "[[title]]: [[value]]",
+	        "lineThickness": 2,
+	        "title": "intra-day",
+	        "valueField": "buzz"
+	    },{
+	        "balloonText": "[[title]]: [[value]]",
+	        "lineThickness": 2,
+	        "title": "intra-day",
+	        "valueField": "trackPlays"
+	    }],
+	    "zoomOutButtonRollOverAlpha": 0.15,
+	    "chartCursor": {
+	        "categoryBalloonDateFormat": "MMM DD JJ:NN",
+	        "cursorPosition": "mouse",
+	        "showNextAvailable": true
+	    },
+	    "autoMarginOffset": 5,
+	    "columnWidth": 1,
+	    "categoryField": "date",
+	    "categoryAxis": {
+	        "minPeriod": "hh",
+	        "parseDates": true
+	    },
+	    "export": {
+	        "enabled": true
+	    }
+	});
+
 
 </script>
 <?php //get_sidebar(); ?>
