@@ -9,6 +9,7 @@
  */
 get_header(); 
 the_post();
+$i=0;
 $servername = "213.187.242.145";
 $username = "wecrossdata";
 $password = "Rpr5VCSmte3K99ZK";
@@ -34,6 +35,7 @@ $getcolumns[] = array('id' => 'col_totalnews', 'label'=>'Nr of newsitems');
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $data[] = array(
+        	'id' => $row['sq1_aid'],
 			'name' => $row['sq1_name'],
 			'totaltracks' => $row['sq1_total_in_repetoire'],
 			'deltaplays' => $row['sq1_nr_of_plays'],
@@ -143,15 +145,29 @@ $i++;
 							</tr>
 							</thead>
 							<tbody>
-								<?php foreach($data as $row){ ?>
-								<tr class='browse-row' id='row<?php echo $i; ?>' data-id='<?php echo $row['id']; ?>'>
-								<?php foreach($row as $column => $columndata ){ ?>
-								<td class='<?php echo $column ?>'>
-									 <?php echo $columndata; ?>
-								</td>
-								<?php } ?>
+								<?php 
+									foreach($data as $row){ 
+								?>
+								<tr class='browse-row' id='row_<?php echo $row['id']; ?>' data-id='<?php echo $row['id']; ?>'>
+									<?php 
+										foreach($row as $column => $columndata){
+											if($column!='id'){
+									?>			
+												<td class='<?php echo $column ?>'>
+													 <?php echo $columndata; ?>
+												</td>
+									<?php			
+											} 
+									?>
+									
+									<?php
+										} 
+									?>
 							</tr>
-							<?php $i++; }  ?>
+								<?php
+										$i++;
+								 	}
+								?>
 							</tbody>
 							</table>
 						</div>
@@ -230,6 +246,7 @@ jQuery(document).ready(function() {
     
     // onclick function on row-click on table
     $('.browse-row').click(function(){
+    	console.log($(this).attr('data-id'));
 	     //window.location = 'detail?id='+$(this).attr('data-id');
 	     window.location = 'detail';
     });
