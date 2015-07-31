@@ -18,4 +18,6 @@ wp-content/cache/supercache/*
 wp-content/cache/
 wp-content/backups/
 sitemap.xml
+.htaccess
 sitemap.xml.gz
+wp-content/themes/multitool/backup.html
