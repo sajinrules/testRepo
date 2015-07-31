@@ -21,10 +21,8 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
 $sql = "SELECT * FROM D028";
 $result = $conn->query($sql);
-echo "deal:".$result->num_rows;
 
 $getcolumns[] = array('id' => 'col_name', 'label'=>'Name');
 $getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
