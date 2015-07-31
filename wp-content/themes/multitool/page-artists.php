@@ -10,20 +10,12 @@
 get_header(); 
 the_post();
 $i=0;
-$servername = "213.187.242.145";
-$username = "wecrossdata";
-$password = "Rpr5VCSmte3K99ZK";
-$dbname = "dataviews";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+require('./wp-db-init.php');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 $sql = "SELECT * FROM D028";
 $result = $conn->query($sql);
+
 
 $getcolumns[] = array('id' => 'col_name', 'label'=>'Name');
 $getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
@@ -48,19 +40,6 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-/*$i = 0;
-
-while($i<100){
-	$data[] = array(
-		'name' => 'artistname',
-		'totaltracks' => 20,
-		'deltaplays' => 400,
-		'totalchannels' => 5,
-		'nrofgigs' => 10,
-		'totalnews' => 40
-	);
-$i++;
-}*/
 ?>
 	<!-- BEGIN CONTENT -->
 
@@ -247,8 +226,9 @@ jQuery(document).ready(function() {
     // onclick function on row-click on table
     $('.browse-row').click(function(){
     	console.log($(this).attr('data-id'));
+    	//return;
 	     //window.location = 'detail?id='+$(this).attr('data-id');
-	     window.location = 'detail';
+	     window.location = 'detail?row='+parseInt($(this).attr('data-id'));
     });
         
        
