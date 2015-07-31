@@ -21,11 +21,12 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
+//echo "Connected successfully";
 $sql = "SELECT * FROM D028";
 $result = $conn->query($sql);
-echo "deal:".$result->num_rows;
+//echo "deal:".$result->num_rows;
 
+$getcolumns[] = array('id' => 'col_id', 'label'=>'Artist ID');
 $getcolumns[] = array('id' => 'col_name', 'label'=>'Name');
 $getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
 $getcolumns[] = array('id' => 'col_totalplays', 'label'=>'Nr of Plays');
@@ -36,6 +37,7 @@ $getcolumns[] = array('id' => 'col_totalnews', 'label'=>'Nr of newsitems');
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $data[] = array(
+	        'id' => $row['sq1_aid'],
 			'name' => $row['sq1_name'],
 			'totaltracks' => $row['sq1_total_in_repetoire'],
 			'deltaplays' => $row['sq1_nr_of_plays'],
@@ -203,15 +205,15 @@ jQuery(document).ready(function() {
             [0, 'asc']
         ],
         "lengthMenu": [
-            [5, 15, 20, -1],
-            [5, 15, 20, "All"] // change per page values here
+            [5, 15, 20, 50, 100, -1],
+            [5, 15, 20, 50, 100, "All"] // change per page values here
         ],
-        "pageLength": 10, // set the initial value,
+        "pageLength": 50, // set the initial value,
         "columnDefs": [{  // set default column settings
-            'orderable': false,
+            'orderable': true,
             'targets': [0]
         }, {
-            "searchable": false,
+            "searchable": true,
             "targets": [0]
         }],
         "order": [
@@ -233,7 +235,8 @@ jQuery(document).ready(function() {
     // onclick function on row-click on table
     $('.browse-row').click(function(){
 	     //window.location = 'detail?id='+$(this).attr('data-id');
-	     window.location = 'detail';
+	     //window.location = 'detail';
+	     window.location = 'detail?row='+parseInt($(this).attr('data-id'));
     });
         
        

@@ -201,30 +201,33 @@ function getMenuProductions(){
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
-						
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/artists">
-							Artists</a>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/detail">
+							Info</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/contacts">
+							Contacts</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/channels">
 							Channels</a>
 						</li>
 						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/repetoire">
+							Repetoire</a>
+						</li>
+						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/content">
-							Content</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/info">
-							Info</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/partners">
-							Partners</a>
+							Trending Content</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/schedule">
 							Schedule</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/partners">
+							Partners</a>
 						</li>
 					</ul>
 				</li>
@@ -402,25 +405,30 @@ function getMenuCompanies(){
 							<a href="<?php bloginfo('wpurl'); ?>/companies/detail">
 							Info</a>
 						</li>
+						
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/artists">
-							Artists</a>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/contacts">
+							Contacts</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/channels">
+							Channels</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/repetoire">
+							Repetoire</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/companies/content">
-							Content</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/partners">
-							Partners</a>
+							Trending Content</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/companies/schedule">
 							Schedule</a>
 						</li>
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/channel">
-							Channels</a>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/partners">
+							Partners</a>
 						</li>
 					</ul>
 				</li>
@@ -672,7 +680,7 @@ function getMenuAgileProjects(){
 			</li>
 			
 			<li>
-				<a href="<?php bloginfo('wpurl'); ?>/planning"><i class='fa fa-tasks'></i>
+				<a href="<?php bloginfo('wpurl'); ?>/planning/?project_id=<?php echo $project_id; ?>"><i class='fa fa-tasks'></i>
 				<span class="title">Planning</span></a>
 			</li>
 			 

@@ -198,7 +198,8 @@ jQuery(document).ready(function() {
     
     // onclick function on row-click on table go to the detailpage of company
     $('.browse-row').click(function(){
-	     window.location = 'detail?id='+$(this).attr('data-id');
+	     // window.location = 'detail?id='+$(this).attr('data-id');
+		  window.location = 'detail';
     });
         
        
