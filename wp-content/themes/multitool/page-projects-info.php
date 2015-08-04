@@ -10,17 +10,19 @@
 get_header(); 
 the_post();
 $task_obj = CPM_Task::getInstance();
-
+$project_obj = CPM_Project::getInstance();
+$projects = $project_obj->get_projects();
+ //echo '<pre>';print_r($projects);
 $project_id=$_REQUEST['project_id']; 
 
 //$pro_obj = CPM_Project::getInstance();
 //$activities = $pro_obj->get_activity( $project_id, array() );
 
-  $activities = CPM_project::getInstance()->get_activity( $project_id, array() );
-     $comment_count = get_comment_count( $project_id );
- //echo '<pre>';print_r($comment_count);
- //echo $comment_count->total_comments;
-
+	$info = CPM_project::getInstance()->get_info( $project_id, array() );
+	$comment_count = get_comment_count( $project_id );
+	//echo '<pre>';print_r($info);
+	
+//echo cpm_project_summary( $project->info );  
  
 	
 	
@@ -38,6 +40,9 @@ if ( cpm_user_can_access( $project_id, 'tdolist_view_private' ) ) {
 
 ?><?php getMenuAgileProjects(); ?>
 	<!-- BEGIN CONTENT -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
 
 	<div class="page-content-wrapper has-leftmenu">
 	<!-- BEGIN PAGE HEADER-->
@@ -45,8 +50,23 @@ if ( cpm_user_can_access( $project_id, 'tdolist_view_private' ) ) {
 			<div class="page-head">
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
-					<h1><?php echo get_the_title( $project_id ); //the_title(); ?></h1>
+					<h1 id="page-title-cl"><?php echo get_the_title( $project_id ); ?></h1> 
 				</div>
+				 <div class="clear"></div>
+				<!-- For replacement of current project - title to the drop down list -->
+				<div id="switchProject" style="display:none; float:left;" class="form-group">		
+				<div class="col-md-4">				
+				<form name="switchProject">
+					<select class="form-control input-medium select2me" data-placeholder="Select..." name="menu" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
+						<option selected="selected"><?php echo get_the_title( $project_id ); ?></option>
+						<?php foreach($projects as $proj){ //$key = key($proj);?>
+							<option value="<?php  bloginfo('url');?>/project-info/?project_id=<?php echo $proj->ID; ?>"> <?php echo $proj->post_title; ?></option>
+						<?php } ?>
+					</select>
+				</form>	 
+				</div>
+				</div>
+				<!-- Replacement ends here -->
 				<!-- END PAGE TITLE -->
 			</div>
 			<!-- END PAGE HEAD -->
@@ -100,14 +120,31 @@ if ( cpm_user_can_access( $project_id, 'tdolist_view_private' ) ) {
 							 <h2><?php echo strtoupper(get_the_title( $project_id ));  ?></h2> 
 							 
 							 
-							 <div class="project-summary">Project Summary : </div>
 							 
-							 <div class="comments-count">
+
 							 
-							 Comments : <?php foreach($comment_count as $comments){ echo $comments->total_comments; } ?>
+							<!-- <div class="project-summary">
+							 Project Summary : 
 							 
 							 </div>
+							 -->
+							 <div class="project-comments">
 							 
+							 Comments : <a href="#"><?php echo $info->comments; ?></a>
+							 
+							 </div>
+							 <div class="project-todolist">
+							 To-do lists : <a href="#"><?php echo $info->todolist; ?></a>
+							 </div>
+							 <div class="project-todos">
+							 Tasks : <a href="#"><?php echo $info->todos; ?></a>
+							 </div>
+							  <div class="project-files">
+							 Files : <a href="#"><?php echo $info->files; ?></a>
+							 </div>
+							  <div class="project-milestone">
+							 Milestones : <a href="#"><?php echo $info->milestone; ?></a>
+							 </div>
 							 <?php 
 							  echo cpm_activity_html( $activities );
 							 ?>
@@ -166,12 +203,51 @@ $pending_tasks = isset( $pending_tasks ) ? $pending_tasks : array();
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	
-<script>
-jQuery(document).ready(function() {       
+<script type="text/javascript">
+function dropdown(mySel)
+{
+var myWin, myVal;
+myVal = mySel.options[mySel.selectedIndex].value;
+if(myVal)
+ {
+ if(mySel.form.target)myWin = parent[mySel.form.target];
+ else myWin = window;
+ if (! myWin) return true;
+ myWin.location = myVal;
+ }
+return false;
+}
+
+
+jQuery(document).ready(function() {   
+
+
+$( "#page-title-cl" ).click(function() {
+	
+  $( "#switchProject" ).toggle( "fast", function() {
+    // Animation complete.
+  });
+});
+
+$(".page-title h1").hover(function (){
+        $(this).css("text-decoration", "underline");
+    },function(){
+        $(this).css("text-decoration", "none");
+    }
+);
+
+ 
+ 
+
+ 
+    
    // initiate layout and plugins
    Metronic.init(); // init metronic core components
    Layout.init(); // init current layout
    Demo.init(); // init demo features
+   
+   
+   
     
 });
 
@@ -184,7 +260,27 @@ jQuery(document).ready(function() {
 	margin-top: 79px;
 }
 .project-summary{
-	margin:50px 0px 30px 0px;
+	margin:30px 0px 30px 0px;
+}
+.project-comments, .project-todolist, .project-todos, .project-files, .project-milestone{
+	margin:20px 0px 30px 0px;
+}
+.page-title{
+	 
+}
+#page-title-cl{
+	cursor: pointer; cursor: hand; 
+}
+#switchProject{
+	position:absolute;
+	z-index: 2;
+	top: 50px;
+}
+.input-medium {
+    width: 235px !important;
+}
+#switchProject .col-md-4{
+	padding-left:0;
 }
 </style>
 <?php //get_sidebar(); ?>

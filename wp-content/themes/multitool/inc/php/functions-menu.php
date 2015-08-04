@@ -1,5 +1,6 @@
 <?php
 
+ 
 function getMenuAudience(){
 	
 	?>
@@ -65,19 +66,27 @@ function getMenuArtists(){
 					<a href="<?php bloginfo('wpurl'); ?>/artists"></i>
 					<span class="title">Browse</span></a>
 				</li>
-				<li class="start ">
+				<li class="start open">
 					<a href="javascript:;">
 					<span class="title">Details</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/artists/contacts">
+							Contacts</a>
+						</li>
+						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/artists/channels">
 							Channels</a>
 						</li>
 						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/artists/repetoire">
+							Repetoire</a>
+						</li>
+						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/artists/content">
-							Content</a>
+							Trending Content</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/artists/agenda">
@@ -86,10 +95,6 @@ function getMenuArtists(){
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/artists/partners">
 							Partners</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/artists/info">
-							Info</a>
 						</li>
 					</ul>
 				</li>
@@ -196,30 +201,33 @@ function getMenuProductions(){
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
-						
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/artists">
-							Artists</a>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/detail">
+							Info</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/contacts">
+							Contacts</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/channels">
 							Channels</a>
 						</li>
 						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/repetoire">
+							Repetoire</a>
+						</li>
+						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/content">
-							Content</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/info">
-							Info</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/productions/partners">
-							Partners</a>
+							Trending Content</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/productions/schedule">
 							Schedule</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/productions/partners">
+							Partners</a>
 						</li>
 					</ul>
 				</li>
@@ -397,25 +405,30 @@ function getMenuCompanies(){
 							<a href="<?php bloginfo('wpurl'); ?>/companies/detail">
 							Info</a>
 						</li>
+						
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/artists">
-							Artists</a>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/contacts">
+							Contacts</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/channels">
+							Channels</a>
+						</li>
+						<li>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/repetoire">
+							Repetoire</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/companies/content">
-							Content</a>
-						</li>
-						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/partners">
-							Partners</a>
+							Trending Content</a>
 						</li>
 						<li>
 							<a href="<?php bloginfo('wpurl'); ?>/companies/schedule">
 							Schedule</a>
 						</li>
 						<li>
-							<a href="<?php bloginfo('wpurl'); ?>/companies/channel">
-							Channels</a>
+							<a href="<?php bloginfo('wpurl'); ?>/companies/partners">
+							Partners</a>
 						</li>
 					</ul>
 				</li>
@@ -581,7 +594,7 @@ function getMenuAgileMain(){
 	<div class="page-sidebar-wrapper">
 		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-		<div class="page-sidebar navbar-collapse collapse">
+		<div class="page-sidebar navbar-collapse collapse projects">
 			<!-- BEGIN SIDEBAR MENU -->
 			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
 			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -597,15 +610,15 @@ function getMenuAgileMain(){
 			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 				<li>
 				<a href="<?php bloginfo('wpurl'); ?>/agile/to-do"><i class='fa fa-tasks'></i>
-				<span class="title">Tasks</span></a>
+				<span class="title">My Tasks</span></a>
 			</li>
 			<li>
-				<a href="<?php bloginfo('wpurl'); ?>/project/?project_id=75&tab=kanboard&action=index"><i class='fa fa-trello'></i>
-				<span class="title">Messages</span></a>
+				<a href="<?php bloginfo('wpurl'); ?>/inbox"><i class='fa fa-trello'></i>
+				<span class="title">Inbox</span></a>
 			</li>
 			
 			<li>
-				<a href="<?php bloginfo('wpurl'); ?>/"><i class='fa fa-trello'></i>
+				<a href="<?php bloginfo('wpurl'); ?>/agile/notifications"><i class='fa fa-trello'></i>
 				<span class="title">Notifications</span></a>
 			</li>
 			 
@@ -624,6 +637,69 @@ function getMenuAgileMain(){
 	<?php
 	
 }
+
+/**
+*
+*
+*/
+
+function getMenuAgileProjects(){
+	// Get the project id.
+   $project_id=$_REQUEST['project_id']; 
+	?>
+		<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="page-sidebar navbar-collapse collapse projects">
+			<!-- BEGIN SIDEBAR MENU -->
+			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<li>
+				<a href="<?php bloginfo('wpurl'); ?>/projects/"><i class='fa fa-trello'></i>
+				<span class="title">Browse</span></a>
+			</li>
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<li>
+				<a href="<?php bloginfo('wpurl'); ?>/"><i class='fa fa-tasks'></i>
+				<span class="title">Backlog</span></a>
+			</li>
+			<li>
+				<a href="<?php bloginfo('wpurl'); ?>/boards/?project_id=<?php echo $project_id; ?> "><i class='fa fa-trello'></i>
+				<span class="title">Boards</span></a>
+			</li>
+			
+			<li>
+				<a href="<?php bloginfo('wpurl'); ?>/agile/to-do"><i class='fa fa-trello'></i>
+				<span class="title">Tasks</span></a>
+			</li>
+			
+			<li>
+				<a href="<?php bloginfo('wpurl'); ?>/planning/?project_id=<?php echo $project_id; ?>"><i class='fa fa-tasks'></i>
+				<span class="title">Planning</span></a>
+			</li>
+			 
+			<hr/>
+			<li>
+				
+				<a href="<?php bloginfo('wpurl'); ?>/project/settings"><i class='fa fa-cog'></i>
+				<span class="title">Settings</span></a>
+			</li>
+				
+			</ul>
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+	
+	<?php
+	
+}
+
 
 function getMenuAgile($mainsection){
 	

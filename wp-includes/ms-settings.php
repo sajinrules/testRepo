@@ -159,8 +159,8 @@ if ( !isset( $current_site ) || !isset( $current_blog ) ) {
 			ms_not_installed();
 		}
 
-		header( 'Location: ' . $destination );
-		exit;
+		/*header( 'Location: ' . $destination );
+		exit; */
 	}
 
 	// @todo What if the domain of the network doesn't match the current site?

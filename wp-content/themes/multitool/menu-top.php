@@ -44,7 +44,7 @@
 					<a href='/wecross-dashboard'>Dashboard</a>
 				</li>
 				<li>
-					<a href='/artists'>Artists</a>
+					<a href='/artists/'>Artists</a>
 				</li>
 				<li>
 					<a href='/productions'>Productions</a>
@@ -56,12 +56,14 @@
 					<a href='/audience'>Audience</a>
 				</li>
 				<li>
-					<a href='/campaigns'><i class='fa fa-bullhorn'></i> Campaigns</a>
+					<a href='/campaigns'>Campaigns</a>
 				</li>
 				<li>
-					<a href='/agile/?project_id=75'>Agile</a>
+					<a href='/projects'>Agile</a>
 				</li>
 				<li>
+					<a target='_blank' href="<?php bloginfo('wpurl'); ?>/wp-content/themes/metronic_resources/theme/templates/admin4/">(metronics)</a>
+				</li>
 		</div>
 		</li>
 	</ul>
@@ -276,7 +278,7 @@
 					<!-- BEGIN TODO DROPDOWN -->
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 					<li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
-						<a href="/to-do" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
+						<a href="/agile/to-do" class="dropdown-toggle" data-hover="dropdown" data-close-others="true">
 						<i class="icon-calendar"></i>
 						<span class="badge badge-pink">
 						3 </span>

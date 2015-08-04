@@ -9,8 +9,24 @@
  */
 get_header(); 
 the_post();
+$project_obj = CPM_Project::getInstance();
+$projects = $project_obj->get_projects();
+ //echo '<pre>';print_r($projects);
+$project_id=$_REQUEST['project_id']; 
+
+//$pro_obj = CPM_Project::getInstance();
+//$activities = $pro_obj->get_activity( $project_id, array() );
+
+	$info = CPM_project::getInstance()->get_info( $project_id, array() );
+	$comment_count = get_comment_count( $project_id );
+
 ?><?php getMenuAgileProjects(); ?>
 	<!-- BEGIN CONTENT -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css"/>
+<link href="<?php get_bloginfo('url'); ?>/wp-content/themes/multitool/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
 
 	<div class="page-content-wrapper has-leftmenu">
 	<!-- BEGIN PAGE HEADER-->
@@ -18,8 +34,25 @@ the_post();
 			<div class="page-head">
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
-					<h1><?php echo 'Board';//the_title(); ?></h1>
+					<h1 id="page-title-cl"><?php echo get_the_title( $project_id ); //the_title(); ?></h1> 
 				</div>
+				 <div class="clear"></div>
+				<!-- For replacement of current project - title to the drop down list -->
+
+				
+				<div id="switchProject" style="display:none; float:left;" class="form-group">		
+<div class="col-md-4">				
+				<form name="switchProject">
+					<select class="form-control input-medium select2me" data-placeholder="Select..." name="menu" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
+						<option selected="selected">Select project</option>
+						<?php foreach($projects as $proj){ //$key = key($proj);?>
+							<option value="<?php  bloginfo('url');?>/project-info/?project_id=<?php echo $proj->ID; ?>"> <?php echo $proj->post_title; ?></option>
+						<?php } ?>
+					</select>
+				</form>	 
+				</div>
+				</div>
+				<!-- Replacement ends here -->
 				<!-- END PAGE TITLE -->
 			</div>
 			<!-- END PAGE HEAD -->
@@ -39,6 +72,9 @@ the_post();
 			<!-- END PAGE BREADCRUMB -->
 			<!-- END PAGE HEADER-->
 		<div class="page-content">
+		<a class="btn default" id="ajax-demo" data-toggle="modal">
+									View Demo </a>
+		
 			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -178,6 +214,8 @@ foreach ( $sections as $key => $section ) {
         <?php
                     if ( $section->menu_order != 3 ) {
                         ?>
+						
+
                         <div class="<?php echo $class .' '. $add_more_class; ?>" data-section_id="<?php echo $section->ID; ?>"><?php _e('+ Add More Task', 'kbc' ); ?></div>
                         <?php
                         if ( $section->menu_order > 3 ) {
@@ -318,10 +356,32 @@ foreach ( $sections as $key => $section ) {
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/admin/pages/scripts/ui-extended-modals.js"></script>
+
 	<!-- END PAGE LEVEL PLUGINS -->
 	
 <script>
-jQuery(document).ready(function() {       
+jQuery(document).ready(function() {    
+
+$( "#page-title-cl" ).click(function() {
+	
+  $( "#switchProject" ).toggle( "fast", function() {
+    // Animation complete.
+  });
+});
+
+$(".page-title h1").hover(function (){
+        $(this).css("text-decoration", "underline");
+    },function(){
+        $(this).css("text-decoration", "none");
+    }
+);
+
+   
    // initiate layout and plugins
    Metronic.init(); // init metronic core components
    Layout.init(); // init current layout
@@ -336,6 +396,20 @@ jQuery(document).ready(function() {
 }
 .projects{
 	margin-top: 79px;
+}
+#page-title-cl{
+	cursor: pointer; cursor: hand; 
+}
+#switchProject{
+	position:absolute;
+	z-index: 2;
+	top: 50px;
+}
+.input-medium {
+    width: 235px !important;
+}
+#switchProject .col-md-4{
+	padding-left:0;
 }
 </style>
 <?php //get_sidebar(); ?>

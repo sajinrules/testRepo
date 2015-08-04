@@ -9,6 +9,7 @@
  */
 get_header(); 
 the_post();
+<<<<<<< HEAD
 $i=0;
 
 require('./wp-db-init.php');
@@ -17,6 +18,26 @@ $sql = "SELECT * FROM D028";
 $result = $conn->query($sql);
 
 
+=======
+$servername = "213.187.242.145";
+$username = "wecrossdata";
+$password = "Rpr5VCSmte3K99ZK";
+$dbname = "dataviews";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+//echo "Connected successfully";
+$sql = "SELECT * FROM D028";
+$result = $conn->query($sql);
+//echo "deal:".$result->num_rows;
+
+$getcolumns[] = array('id' => 'col_id', 'label'=>'Artist ID');
+>>>>>>> staging
 $getcolumns[] = array('id' => 'col_name', 'label'=>'Name');
 $getcolumns[] = array('id' => 'col_totaltracks', 'label'=>'Total in Repetoire');
 $getcolumns[] = array('id' => 'col_totalplays', 'label'=>'Nr of Plays');
@@ -27,7 +48,11 @@ $getcolumns[] = array('id' => 'col_totalnews', 'label'=>'Nr of newsitems');
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $data[] = array(
+<<<<<<< HEAD
         	'id' => $row['sq1_aid'],
+=======
+	        'id' => $row['sq1_aid'],
+>>>>>>> staging
 			'name' => $row['sq1_name'],
 			'totaltracks' => $row['sq1_total_in_repetoire'],
 			'deltaplays' => $row['sq1_nr_of_plays'],
@@ -40,6 +65,22 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
+<<<<<<< HEAD
+=======
+/*$i = 0;
+
+while($i<100){
+	$data[] = array(
+		'name' => 'artistname',
+		'totaltracks' => 20,
+		'deltaplays' => 400,
+		'totalchannels' => 5,
+		'nrofgigs' => 10,
+		'totalnews' => 40
+	);
+$i++;
+}*/
+>>>>>>> staging
 ?>
 	<!-- BEGIN CONTENT -->
 
@@ -124,6 +165,7 @@ if ($result->num_rows > 0) {
 							</tr>
 							</thead>
 							<tbody>
+<<<<<<< HEAD
 								<?php 
 									foreach($data as $row){ 
 								?>
@@ -147,6 +189,17 @@ if ($result->num_rows > 0) {
 										$i++;
 								 	}
 								?>
+=======
+								<?php foreach($data as $row){ ?>
+								<tr class='browse-row' id='row<?php echo $i; ?>' data-id='<?php echo $row['id']; ?>'>
+								<?php foreach($row as $column => $columndata ){ ?>
+								<td class='<?php echo $column ?>'>
+									 <?php echo $columndata; ?>
+								</td>
+								<?php } ?>
+							</tr>
+							<?php $i++; }  ?>
+>>>>>>> staging
 							</tbody>
 							</table>
 						</div>
@@ -196,6 +249,7 @@ jQuery(document).ready(function() {
             [0, 'asc']
         ],
         "lengthMenu": [
+<<<<<<< HEAD
             [5, 15, 20, -1],
             [5, 15, 20, "All"] // change per page values here
         ],
@@ -205,6 +259,17 @@ jQuery(document).ready(function() {
             'targets': [0]
         }, {
             "searchable": false,
+=======
+            [5, 15, 20, 50, 100, -1],
+            [5, 15, 20, 50, 100, "All"] // change per page values here
+        ],
+        "pageLength": 50, // set the initial value,
+        "columnDefs": [{  // set default column settings
+            'orderable': true,
+            'targets': [0]
+        }, {
+            "searchable": true,
+>>>>>>> staging
             "targets": [0]
         }],
         "order": [
@@ -225,9 +290,14 @@ jQuery(document).ready(function() {
     
     // onclick function on row-click on table
     $('.browse-row').click(function(){
+<<<<<<< HEAD
     	console.log($(this).attr('data-id'));
     	//return;
 	     //window.location = 'detail?id='+$(this).attr('data-id');
+=======
+	     //window.location = 'detail?id='+$(this).attr('data-id');
+	     //window.location = 'detail';
+>>>>>>> staging
 	     window.location = 'detail?row='+parseInt($(this).attr('data-id'));
     });
         

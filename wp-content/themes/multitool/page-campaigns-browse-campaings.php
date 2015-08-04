@@ -10,7 +10,11 @@
 //echo getcwd();
 
 //$file = fopen("../../home/sajin/demodata/campaigns-facebook.csv","r");
+<<<<<<< HEAD
 $file = fopen("./campaigns-facebook.csv","r");
+=======
+$file = fopen("/var/demodata/campaigns-facebook.csv","r");
+>>>>>>> staging
 $a=[];
 while(!feof($file)){
 	if($i>10)
@@ -20,7 +24,11 @@ while(!feof($file)){
 }
 
 //exit();
+<<<<<<< HEAD
 $file = fopen("./campaigns-facebook.csv","r");
+=======
+$file = fopen("/var/demodata/campaigns-facebook.csv","r");
+>>>>>>> staging
 $arry = fgetcsv($file);
 function get_th($arry){
 	foreach ($arry as $key => $item) {

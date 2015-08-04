@@ -20,4 +20,10 @@ wp-content/backups/
 sitemap.xml
 .htaccess
 sitemap.xml.gz
+<<<<<<< HEAD
 wp-content/themes/multitool/backup.html
+=======
+wp-config.php
+wp-includes/ms-settings.php
+.htaccess
+>>>>>>> staging

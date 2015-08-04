@@ -646,7 +646,7 @@ if (isset($_GET['row'])){
 												<tbody>
 												<tr>
 													<td>
-														OKÉ EDM, HET IS AFGELOPEN MET JE KINDERFEESTJE
+														OKÃ‰ EDM, HET IS AFGELOPEN MET JE KINDERFEESTJE
 													</td>
 													<td>
 														 12-06-2015 18:00
@@ -1148,6 +1148,7 @@ jQuery(document).ready(function() {
    Metronic.init(); // init metronic core components
    Layout.init(); // init current layout
    Demo.init(); // init demo features
+<<<<<<< HEAD
    ChartsFlotcharts.init();
    ChartsFlotcharts.initCharts();
    ChartsFlotcharts.initPieCharts();
@@ -1155,11 +1156,15 @@ jQuery(document).ready(function() {
    ComponentsPickers.init();*/
     
    
+=======
+    
+>>>>>>> staging
 });
 	var data  = [],
 	dataProvider = [];
 
 	data = <?php echo json_encode($data);?>;
+<<<<<<< HEAD
 	
 	function parseDate(string){
 		return new Date(string);
@@ -1173,12 +1178,53 @@ jQuery(document).ready(function() {
 	
 	dataProvider.sort(function(a,b){
 		return new Date(a.date) - new Date(b.date);
+=======
+
+	/*var chartData = [];
+	function generateChartData() {
+	    var firstDate = new Date();
+	    firstDate.setTime(firstDate.getTime() - 10 * 24 * 60 * 60 * 1000);
+
+	    for (var i = firstDate.getTime(); i < (firstDate.getTime() + 10 * 24 * 60 * 60 * 1000); i += 60 * 60 * 1000) {
+	        var newDate = new Date(i);
+
+	        if (i == firstDate.getTime()) {
+	            var value1 = Math.round(Math.random() * 10) + 1;
+	        } else {
+	            var value1 = Math.round(chartData[chartData.length - 1].value1 / 100 * (90 + Math.round(Math.random() * 20)) * 100) / 100;
+	        }
+
+	        if (newDate.getHours() == 12) {
+	            // we set daily data on 12th hour only
+	            var value2 = Math.round(Math.random() * 12) + 1;
+	            chartData.push({
+	                date: newDate,
+	                value1: value1,
+	                value2: value2
+	            });
+	        } else {
+	            chartData.push({
+	                date: newDate,
+	                value1: value1
+	            });
+	        }
+	    }
+	}
+	generateChartData();*/
+	
+	//console.log(data);
+	data.forEach(function(obj){
+		dataProvider.push({'buzz':obj.buzz,'fans':obj.fans,'trackPlays':obj.trackPlays,'date':toDate(obj.date)});
+>>>>>>> staging
 	});
 	
 	function toDate(string){
 		return new Date(string);
 	}
+<<<<<<< HEAD
 	//console.log('after:',dataProvider);	
+=======
+>>>>>>> staging
 	
 		//console.log(dataProvider);
 	var chart = AmCharts.makeChart("chartdiv", {
@@ -1194,6 +1240,7 @@ jQuery(document).ready(function() {
 	        "balloonText": "[[title]]: [[value]]",
 	        "columnWidth": 20,
 	        "fillAlphas": 1,
+<<<<<<< HEAD
 	        "title": "buzz",
 	        "type": "column",
 	        "valueField": "buzz"
@@ -1206,6 +1253,20 @@ jQuery(document).ready(function() {
 	        "balloonText": "[[title]]: [[value]]",
 	        "lineThickness": 2,
 	        "title": "trackPlays",
+=======
+	        "title": "daily",
+	        "type": "column",
+	        "valueField": "fans"
+	    },{
+	        "balloonText": "[[title]]: [[value]]",
+	        "lineThickness": 2,
+	        "title": "intra-day",
+	        "valueField": "buzz"
+	    },{
+	        "balloonText": "[[title]]: [[value]]",
+	        "lineThickness": 2,
+	        "title": "intra-day",
+>>>>>>> staging
 	        "valueField": "trackPlays"
 	    }],
 	    "zoomOutButtonRollOverAlpha": 0.15,
