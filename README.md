@@ -31,3 +31,10 @@ CONFIGURATION
 	
 	ReactDOM.render(<Calendar data={events}/>,document.getElementById('main'));
 ```
+
+
+Dev-dependencies
+------------
+
+ * Browserify
+ * reactify
