@@ -6,7 +6,8 @@ just for test
 INSTALLATION
 ------------
 
- * npm install react-material-calender
+ * npm install react-material-calender [npm](https://www.npmjs.com/package/react-material-calender)
+	
 
 CONFIGURATION
 -------------
