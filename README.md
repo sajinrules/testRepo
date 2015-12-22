@@ -1,7 +1,7 @@
 testRepo
 ========
 
-just for test
+Reactjs Event calender using Material Desgin (MaterialUI) [material-ui](http://www.material-ui.com/#/)
 
 INSTALLATION
 ------------
